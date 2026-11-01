@@ -24,6 +24,8 @@ const ROUTE_MAP = {
   '/about': '/about.html',
   '/program': '/program.html',
   '/in-the-making': '/in-the-making.html',
+  '/making': '/in-the-making.html',
+  '/terms': '/terms.html'
 };
 
 const server = http.createServer((req, res) => {

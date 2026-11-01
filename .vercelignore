@@ -1,10 +1,5 @@
-# Vercel Deployment Ignore Rules
-# Exclude Node dev server and package manifest so Vercel serves the site purely statically
-server.js
-package.json
-package-lock.json
-
-# Exclude vendor, local captures, benchmarks, and debug scripts
+# Exclude local dev files and test scripts from Vercel deployment
+dev-server.js
 _vendor_repos/
 frames/
 cursors/
