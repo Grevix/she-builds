@@ -45,13 +45,13 @@ she-builds/
 ├── terms.css                  # Terms & Conditions editorial stylesheet
 ├── rotate-prompt.css          # Mandatory mobile rotation overlay styles
 │
-├── main.js                    # Home motion orchestration
+├── home.js                    # Home motion orchestration
 ├── program.js                 # Program window dragging & timeline
 ├── in-the-making.js           # Progress bar animation engine
 ├── about.js                   # ASCII butterfly flight choreography
 ├── butterfly-liquid.js        # Liquid-glass butterfly interaction
 ├── rotate-prompt.js           # Orientation detection & event handler
-├── server.js                  # Local development static server
+├── dev-server.js              # Local development static server (node dev-server.js)
 │
 ├── fonts/                     # Self-hosted typography (Bodoni Moda, etc.)
 ├── cursors/                   # Custom Rimuru Tempest cursor set
