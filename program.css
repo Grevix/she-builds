@@ -1,0 +1,1062 @@
+/* ==========================================================================
+   SHE BUILDS — PROGRAM PAGE STYLESHEET (program.css)
+   Editorial Serif Typography + Retro Windows 95/98 Desktop Interface + Responsive Timeline
+   ========================================================================== */
+
+:root {
+  /* Master Prompt Color Palette */
+  --bg-ivory: #FAF3EF;
+  --red-primary: #C91818;
+  --red-deep: #B91515;
+  --red-border: #EA5D57;
+  --text-primary: #151515;
+  --text-secondary: #343434;
+  --blush-pink: #E99A91;
+
+  /* Retro Windows 95/98 Palette */
+  --win-bg: #EFE4DD;
+  --win-surface: #F7EDE6;
+  --win-blue: #123B91;
+  --win-blue-dark: #0A2768;
+  --win-classic-bar: #DCD0C7;
+  --win-border-dark: #1E1C1A;
+  --win-border-mid: #7E7772;
+  --win-border-light: #FFFDFB;
+  --win-btn-bg: #DFD5CE;
+
+  /* Typography */
+  --font-editorial: 'Bodoni Moda', 'Didot', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'IBM Plex Mono', 'Consolas', 'Courier New', monospace;
+
+  /* Proportional viewport unit matched to 1024x484 reference */
+  --u: min(1vw, 2.115vh);
+
+  /* Custom Cursors */
+  --cursor-normal: url('cursors/normal_48_0.png') 0 0, url('cursors/normal_32_0.png') 0 0, auto;
+  --cursor-link: url('cursors/link_48_0.png') 4 0, url('cursors/link_32_0.png') 3 0, pointer;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--bg-ivory);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  cursor: var(--cursor-normal);
+}
+
+a, button, [role="button"] {
+  cursor: var(--cursor-link) !important;
+}
+
+a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
+  outline: 2px solid var(--red-primary);
+  outline-offset: 2px;
+}
+
+.program-viewport {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-ivory);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.program-stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-ivory);
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   1. Top Navigation Bar
+   ========================================================================== */
+.program-header {
+  position: absolute;
+  top: 2.7%;
+  left: 4.6%;
+  right: 3.9%;
+  height: 7.2%;
+  z-index: 60;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.25em;
+  text-decoration: none;
+  font-family: var(--font-editorial);
+  font-size: calc(1.92 * var(--u));
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.brand-she {
+  color: var(--text-primary);
+  font-weight: 700;
+  -webkit-text-stroke: 0.35px var(--text-primary);
+}
+
+.brand-builds {
+  color: var(--red-primary);
+  font-style: italic;
+  font-weight: 600;
+  -webkit-text-stroke: 0.3px var(--red-primary);
+}
+
+.program-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: calc(3.6 * var(--u));
+}
+
+.nav-link {
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: calc(1.24 * var(--u));
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--red-primary);
+}
+
+.nav-link.active {
+  font-weight: 500;
+}
+
+.header-action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-apply {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(0.50 * var(--u)) calc(1.85 * var(--u));
+  border: 1px solid rgba(201, 24, 24, 0.72);
+  border-radius: 9999px;
+  color: var(--red-primary);
+  font-family: var(--font-sans);
+  font-size: calc(1.16 * var(--u));
+  font-style: italic;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  background: transparent;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn-apply:hover {
+  background-color: var(--red-primary);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   2. Hero Section & Enormous Red PROGRAM Heading Entrance Animation
+   ========================================================================== */
+.program-hero {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+
+.hero-title-layer {
+  position: absolute;
+  top: 12.2%;
+  left: 50.1%;
+  transform: translateX(-50%);
+  width: 62%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.program-hero-title {
+  font-family: var(--font-editorial);
+  font-size: calc(20.6 * var(--u));
+  font-weight: 500;
+  -webkit-text-stroke: 0.45px var(--red-primary);
+  font-variation-settings: 'opsz' 9, 'wght' 460;
+  line-height: 0.78;
+  letter-spacing: -0.015em;
+  color: var(--red-primary);
+  text-transform: uppercase;
+  white-space: nowrap;
+  user-select: none;
+  transform-origin: center top;
+  transform: scaleX(0.58) scaleY(0.95);
+  animation: programTitleDropIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.program-hero-title.is-settled {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: translateY(0) scaleX(0.58) scaleY(0.95) !important;
+}
+
+@keyframes programTitleDropIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px) scaleX(0.58) scaleY(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleX(0.58) scaleY(0.95);
+  }
+}
+
+/* --- Left-Side Editorial Description Block --- */
+.hero-left-info {
+  position: absolute;
+  left: 5.5%;
+  top: 32.0%;
+  width: 14.5%;
+  z-index: 25;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: heroSubtleFade 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-left-info.is-settled {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.section-italic-heading {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-editorial);
+  font-size: calc(3.05 * var(--u));
+  font-style: italic;
+  font-weight: 500;
+  -webkit-text-stroke: 0.25px var(--text-primary);
+  line-height: 0.96;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin-bottom: calc(1.15 * var(--u));
+}
+
+.section-short-rule {
+  width: calc(2.1 * var(--u));
+  height: 1px;
+  background-color: var(--text-primary);
+  margin-bottom: calc(1.15 * var(--u));
+}
+
+.section-description {
+  font-family: var(--font-sans);
+  font-size: calc(1.16 * var(--u));
+  font-weight: 400;
+  line-height: 1.46;
+  letter-spacing: 0.005em;
+  color: var(--text-primary);
+}
+
+/* --- Decorative Background Graphics --- */
+/* 1. Red Pixel-Checker Blocks behind left of SHE BUILDS.exe */
+.decor-pixel-checker {
+  position: absolute;
+  left: 21.1%;
+  top: 35.5%;
+  width: calc(21.2 * var(--u));
+  height: calc(13.2 * var(--u));
+  z-index: 8;
+  pointer-events: none;
+  background-image:
+    conic-gradient(
+      #DB2B27 90deg,
+      transparent 90deg 180deg,
+      #E86F6A 180deg 270deg,
+      transparent 270deg
+    );
+  background-size: calc(1.85 * var(--u)) calc(1.85 * var(--u));
+  /* Clip stepped pixel-staircase silhouette matching reference */
+  clip-path: polygon(
+    72% 0%, 92% 0%, 92% 45%, 100% 45%, 100% 80%,
+    55% 80%, 55% 100%, 18% 100%, 18% 88%, 0% 88%,
+    0% 38%, 18% 38%, 18% 25%, 72% 25%
+  );
+  opacity: 0.94;
+}
+
+/* 2. Fine Technical Grid behind right of PROGRAM (R A M) */
+.decor-tech-grid {
+  position: absolute;
+  left: 65.5%;
+  top: 22.0%;
+  width: 22.0%;
+  height: 18.5%;
+  z-index: 4;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(201, 24, 24, 0.10) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(201, 24, 24, 0.10) 1px, transparent 1px);
+  background-size: calc(2.15 * var(--u)) calc(2.15 * var(--u));
+}
+
+/* --- Central Monochrome Subject Overlapping PROGRAM Heading --- */
+.hero-central-subject {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.subject-cutout-img {
+  position: absolute;
+  left: 37.6%;
+  top: 22.7%;
+  width: 27.34%;
+  height: 51.65%;
+  object-fit: fill;
+  z-index: 15;
+  filter: contrast(1.03);
+  user-select: none;
+}
+
+.orbital-curve-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.orbital-back {
+  z-index: 12;
+}
+
+.orbital-front {
+  z-index: 18;
+}
+
+/* ==========================================================================
+   3. Three Independent Interactive Retro Windows 95/98 Panels
+      - Explicitly non-resizable (resize: none !important)
+      - Classic 3D bevel borders & shadow
+   ========================================================================== */
+.retro-window {
+  position: absolute;
+  z-index: 30;
+  background-color: var(--win-bg);
+  border-top: 1.5px solid var(--win-border-light);
+  border-left: 1.5px solid var(--win-border-light);
+  border-right: 1.5px solid var(--win-border-dark);
+  border-bottom: 1.5px solid var(--win-border-dark);
+  box-shadow:
+    inset 1px 1px 0 #E5DAD2,
+    inset -1px -1px 0 var(--win-border-mid),
+    2.5px 3px 0 rgba(25, 22, 20, 0.35);
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  resize: none !important;
+  overflow: hidden;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  user-select: none;
+}
+
+.retro-window.is-closed {
+  opacity: 0;
+  transform: scale(0.92);
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* Classic Title Bar */
+.retro-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: calc(1.58 * var(--u));
+  min-height: 15px;
+  padding: 0 3px 0 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
+.titlebar-blue {
+  background: linear-gradient(90deg, var(--win-blue-dark) 0%, var(--win-blue) 100%);
+  color: #FFFFFF;
+}
+
+.titlebar-classic {
+  background: linear-gradient(90deg, #D5C8BE 0%, #E5DAD1 100%);
+  color: var(--text-primary);
+  border-bottom: 1px solid #9E948C;
+}
+
+.retro-title-text {
+  font-family: var(--font-sans);
+  font-size: calc(0.84 * var(--u));
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.retro-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.retro-btn {
+  width: calc(1.22 * var(--u));
+  height: calc(1.16 * var(--u));
+  min-width: 12px;
+  min-height: 11px;
+  background-color: var(--win-btn-bg);
+  border-top: 1px solid #FFFFFF;
+  border-left: 1px solid #FFFFFF;
+  border-right: 1px solid #222222;
+  border-bottom: 1px solid #222222;
+  color: #151515;
+  font-family: var(--font-mono);
+  font-size: calc(0.78 * var(--u));
+  font-weight: 700;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  resize: none !important;
+}
+
+.retro-btn:not(:disabled):hover {
+  background-color: #EFE6E0;
+}
+
+.retro-btn:not(:disabled):active {
+  border-top: 1px solid #222222;
+  border-left: 1px solid #222222;
+  border-right: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  transform: translate(0.5px, 0.5px);
+}
+
+.retro-btn:disabled {
+  opacity: 0.75;
+  cursor: default !important;
+}
+
+.max-box {
+  width: 6px;
+  height: 5px;
+  border: 1px solid #151515;
+  border-top-width: 2px;
+  display: inline-block;
+}
+
+.retro-body {
+  flex: 1;
+  background-color: var(--win-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Window 1: SHE BUILDS.exe (Left of subject) --- */
+.window-she-builds {
+  left: 24.1%;
+  top: 39.8%;
+  width: calc(16.2 * var(--u));
+  height: calc(10.0 * var(--u));
+}
+
+.body-she-builds {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #EFE4DC;
+}
+
+.pixel-butterfly-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  image-rendering: pixelated;
+}
+
+/* --- Window 2: Program.txt (Upper-right of subject) --- */
+.window-program-txt {
+  left: 67.0%;
+  top: 35.9%;
+  width: calc(13.5 * var(--u));
+  height: calc(9.2 * var(--u));
+}
+
+.body-program-txt {
+  padding: calc(0.45 * var(--u)) calc(0.65 * var(--u));
+  background-color: #EFE4DC;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.program-txt-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.program-txt-line {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: calc(0.84 * var(--u));
+  font-weight: 600;
+  line-height: 1.24;
+  color: var(--text-primary);
+  padding: 1px 4px;
+  border-left: 2px solid transparent;
+  border-radius: 1px;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.program-txt-line:hover,
+.program-txt-line:focus-visible {
+  background-color: rgba(201, 24, 24, 0.12);
+  border-left-color: var(--red-primary);
+  color: var(--red-deep);
+  outline: none;
+}
+
+.program-txt-line.is-selected {
+  background-color: rgba(201, 24, 24, 0.18);
+  border-left-color: var(--red-primary);
+  color: var(--red-deep);
+}
+
+.line-prompt {
+  color: var(--text-secondary);
+}
+
+.program-txt-line:hover .line-prompt,
+.program-txt-line.is-selected .line-prompt {
+  color: var(--red-primary);
+}
+
+.line-ping {
+  margin-left: auto;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--red-primary);
+  opacity: 0;
+  transform: scale(0.4);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.program-txt-line.is-selected .line-ping {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* --- Window 3: progress.exe (Lower-right of subject) --- */
+.window-progress-exe {
+  left: 64.6%;
+  top: 57.6%;
+  width: calc(17.3 * var(--u));
+  height: calc(5.6 * var(--u));
+}
+
+.body-progress-exe {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(0.6 * var(--u));
+  padding: 0 calc(0.65 * var(--u));
+  background-color: #EFE4DC;
+}
+
+.progress-track-well {
+  flex: 1;
+  height: calc(1.62 * var(--u));
+  min-height: 14px;
+  background-color: #F7EFE9;
+  border-top: 1px solid #6E6762;
+  border-left: 1px solid #6E6762;
+  border-right: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.progress-segments {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 1.5px;
+}
+
+.prog-seg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+.prog-seg-fill {
+  display: block;
+  width: 0%;
+  height: 100%;
+  /* Website's deep red accent per Master Prompt Section 8 */
+  background-color: var(--red-deep);
+  transition: width 0.08s linear;
+}
+
+.progress-pct-label {
+  font-family: var(--font-mono);
+  font-size: calc(0.84 * var(--u));
+  font-weight: 700;
+  color: var(--text-primary);
+  min-width: 2.5em;
+  text-align: right;
+}
+
+/* --- Minimal Retro Reopen Utility Dock --- */
+.retro-reopen-dock {
+  position: absolute;
+  right: 5.5%;
+  bottom: 27.2%;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--win-bg);
+  border-top: 1.5px solid var(--win-border-light);
+  border-left: 1.5px solid var(--win-border-light);
+  border-right: 1.5px solid var(--win-border-dark);
+  border-bottom: 1.5px solid var(--win-border-dark);
+  padding: 3px 7px;
+  box-shadow: 2px 2px 0 rgba(25, 22, 20, 0.28);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.retro-reopen-dock.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  visibility: hidden;
+}
+
+.dock-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.dock-buttons {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dock-reopen-btn {
+  background-color: var(--win-btn-bg);
+  border-top: 1px solid #FFFFFF;
+  border-left: 1px solid #FFFFFF;
+  border-right: 1px solid #222222;
+  border-bottom: 1px solid #222222;
+  padding: 2px 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.dock-reopen-btn:hover {
+  background-color: #FFF8F4;
+  color: var(--red-primary);
+}
+
+/* ==========================================================================
+   4. Three-Month Program Timeline Cards (Bottom of Hero)
+   ========================================================================== */
+.program-timeline {
+  position: absolute;
+  left: 5.5%;
+  right: 5.5%;
+  top: 74.0%;
+  height: 22.8%;
+  z-index: 35;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(1.0 * var(--u));
+}
+
+.timeline-card {
+  flex: 1;
+  height: 100%;
+  background-color: var(--bg-ivory);
+  border: 1px solid var(--red-border);
+  border-radius: calc(1.15 * var(--u));
+  padding: calc(1.25 * var(--u)) calc(1.65 * var(--u));
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--red-primary);
+  background-color: #FFF9F5;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+  max-width: 72%;
+}
+
+.card-month {
+  font-family: var(--font-sans);
+  font-size: calc(0.84 * var(--u));
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--red-primary);
+  text-transform: uppercase;
+  margin-bottom: calc(0.28 * var(--u));
+}
+
+.card-title {
+  font-family: var(--font-editorial);
+  font-size: calc(2.35 * var(--u));
+  font-weight: 600;
+  -webkit-text-stroke: 0.35px var(--red-primary);
+  font-variation-settings: 'opsz' 10, 'wght' 540;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  color: var(--red-primary);
+  text-transform: uppercase;
+  margin-bottom: calc(0.55 * var(--u));
+  white-space: nowrap;
+  transform: scaleX(0.82);
+  transform-origin: left center;
+}
+
+.card-desc {
+  font-family: var(--font-sans);
+  font-size: calc(0.94 * var(--u));
+  font-weight: 500;
+  line-height: 1.38;
+  color: var(--text-primary);
+}
+
+.card-number {
+  position: absolute;
+  right: calc(1.35 * var(--u));
+  top: calc(0.75 * var(--u));
+  font-family: var(--font-editorial);
+  font-size: calc(4.2 * var(--u));
+  font-style: italic;
+  font-weight: 400;
+  line-height: 0.9;
+  color: var(--blush-pink);
+  user-select: none;
+  pointer-events: none;
+}
+
+.timeline-arrow {
+  font-family: var(--font-sans);
+  font-size: calc(1.45 * var(--u));
+  font-weight: 500;
+  color: var(--red-primary);
+  flex-shrink: 0;
+  padding: 0 calc(0.2 * var(--u));
+  user-select: none;
+}
+
+@keyframes heroSubtleFade {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   5. Responsive Behaviour (Tablet & Mobile)
+   ========================================================================== */
+@media (max-width: 960px) {
+  .program-viewport,
+  .program-stage {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .program-stage {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 5% 48px;
+    gap: 28px;
+  }
+
+  .program-header {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .brand-wordmark {
+    font-size: 20px;
+  }
+
+  .program-nav {
+    position: static;
+    transform: none;
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+
+  .btn-apply {
+    font-size: 13px;
+    padding: 6px 18px;
+  }
+
+  .program-hero {
+    position: relative;
+    inset: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding-top: 8px;
+  }
+
+  .hero-title-layer {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+  }
+
+  .program-hero-title {
+    font-size: clamp(68px, 21vw, 148px);
+    transform: scaleX(0.66);
+  }
+
+  .hero-left-info {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    max-width: 440px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .section-italic-heading {
+    font-size: 28px;
+    flex-direction: row;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .section-short-rule {
+    width: 28px;
+    margin-bottom: 10px;
+  }
+
+  .section-description {
+    font-size: 14px;
+  }
+
+  .decor-pixel-checker,
+  .decor-tech-grid,
+  .orbital-curve-svg {
+    display: none;
+  }
+
+  .hero-central-subject {
+    position: relative;
+    inset: auto;
+    width: min(76vw, 280px);
+    height: 230px;
+    margin: -18px auto 0;
+  }
+
+  .subject-cutout-img {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* Responsive Retro Windows Grid on Tablet/Mobile */
+  .retro-window {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: min(90vw, 290px) !important;
+  }
+
+  .window-she-builds {
+    height: 128px !important;
+  }
+
+  .window-program-txt {
+    height: auto !important;
+  }
+
+  .body-program-txt {
+    padding: 10px 12px;
+  }
+
+  .program-txt-line {
+    font-size: 13px;
+    padding: 3px 6px;
+  }
+
+  .window-progress-exe {
+    height: 72px !important;
+  }
+
+  .retro-titlebar {
+    height: 22px;
+  }
+
+  .retro-title-text {
+    font-size: 12px;
+  }
+
+  .retro-btn {
+    width: 18px;
+    height: 16px;
+    font-size: 11px;
+  }
+
+  .progress-track-well {
+    height: 20px;
+  }
+
+  .progress-pct-label {
+    font-size: 12px;
+  }
+
+  .retro-reopen-dock {
+    position: relative;
+    right: auto;
+    bottom: auto;
+  }
+
+  /* Stack Timeline Cards Vertically on Smaller Screens */
+  .program-timeline {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    height: auto;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 500px;
+    margin: 8px auto 0;
+  }
+
+  .timeline-arrow {
+    display: none;
+  }
+
+  .timeline-card {
+    width: 100%;
+    min-height: 125px;
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+
+  .card-month {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+
+  .card-title {
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+
+  .card-desc {
+    font-size: 13px;
+  }
+
+  .card-number {
+    font-size: 46px;
+    right: 16px;
+    top: 12px;
+  }
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .program-hero-title,
+  .hero-left-info {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}

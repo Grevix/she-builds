@@ -1,0 +1,473 @@
+/* ==========================================================================
+   SHE BUILDS — Editorial Landing Page & Signature Mask Reveal
+   Pure White/Ivory Canvas, Calibrated Typography & Universal Custom Cursor.
+   ========================================================================== */
+
+:root {
+  --color-canvas-bg: #FAF4F1; /* Pure warm white/ivory background (black bezel removed) */
+  --color-card-bg: #FAF4F1;
+  --color-crimson: #C31311; /* Exact crimson sampled from target headline */
+  --color-crimson-hover: #9E1611;
+  --color-text-dark: #181818;
+  --color-text-muted: #2B2B2B;
+  --color-nav-link: #262626;
+  --color-rule: #222222;
+  --font-editorial: 'Bodoni Moda', 'Italiana', 'Didot', 'Playfair Display', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* Universal Cross-Platform Rimuru Tempest Custom Cursors (Windows, macOS, Linux) */
+  --cursor-normal: url('cursors/normal_48_0.png') 0 0, url('cursors/normal_32_0.png') 0 0, auto;
+  --cursor-link: url('cursors/link_48_0.png') 4 0, url('cursors/link_32_0.png') 3 0, pointer;
+  --cursor-working: url('cursors/working_48_0.png') 0 0, url('cursors/working_32_0.png') 0 0, progress;
+
+  /* Responsive unit that matches 1vw at 547:303 and prevents vertical overflow on wider viewports */
+  --u: min(1vw, 1.80528vh);
+
+  /* Calibrated Geometric Parameters (recursively tuned to match target reference) */
+  --hl-bottom: 44.29%;
+  --hl-left: 50.76%;
+  --hl-font-size: 25.4vw;
+  --hl-scale-x: 0.5711;
+  --hl-scale-y: 0.9927;
+  --bf-top: 64.42%;
+  --bf-left: 52.85%;
+  --bf-width: calc(58.07 * var(--u));
+  --bf-scale-y: 0.9002;
+}
+
+/* Base Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-canvas-bg);
+  color: var(--color-text-dark);
+  font-family: var(--font-sans);
+  overflow: hidden;
+  user-select: none;
+  cursor: var(--cursor-normal);
+}
+
+a, button, [role="button"], input, label,
+.nav-link, .btn-apply-pill, .brand-wordmark, .insp-btn, .frame-tag, .insp-slider {
+  cursor: var(--cursor-link) !important;
+}
+
+/* Outer Presentation Canvas — Clean White/Ivory Only (No Black Frame) */
+.viewport-canvas {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background-color: var(--color-canvas-bg);
+}
+
+/* The Editorial Stage — Full-Screen Wide Fit (100vw x 100vh) on Seamless White/Ivory Canvas */
+.editorial-card {
+  position: relative;
+  container-type: inline-size;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-card-bg);
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Header Navigation
+   ========================================================================== */
+.editorial-header {
+  position: absolute;
+  top: 3.2%;
+  left: 4.8%;
+  right: 4.0%;
+  height: 6.5%;
+  z-index: 30;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Brand Wordmark: SHE BUILDS */
+.brand-wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.28em;
+  text-decoration: none;
+  font-family: var(--font-editorial);
+  font-size: calc(2.15 * var(--u));
+  font-weight: 700;
+  font-variation-settings: 'opsz' 6, 'wght' 750;
+  letter-spacing: 0.015em;
+  line-height: 1;
+}
+
+.brand-she {
+  color: var(--color-text-dark);
+  font-weight: 700;
+  -webkit-text-stroke: 0.45px var(--color-text-dark);
+}
+
+.brand-builds {
+  color: var(--color-crimson);
+  font-style: italic;
+  font-weight: 600;
+  font-variation-settings: 'opsz' 6, 'wght' 650;
+  -webkit-text-stroke: 0.35px var(--color-crimson);
+}
+
+/* Center Navigation Links */
+.editorial-nav {
+  position: absolute;
+  left: 49.5%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: calc(3.8 * var(--u));
+}
+
+.nav-link {
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: calc(1.38 * var(--u));
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--color-nav-link);
+  transition: color 0.25s ease;
+  position: relative;
+}
+
+.nav-link.active {
+  color: var(--color-crimson);
+}
+
+.nav-link:hover {
+  color: var(--color-crimson);
+}
+
+/* Far Right Apply Pill Button */
+.header-action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-apply-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(0.45 * var(--u)) calc(1.75 * var(--u));
+  border: 1.2px solid var(--color-crimson);
+  border-radius: 9999px;
+  color: var(--color-crimson);
+  font-family: var(--font-sans);
+  font-size: calc(1.42 * var(--u));
+  font-style: italic;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  background: transparent;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-apply-pill:hover {
+  background-color: var(--color-crimson);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Hero Centerpiece (Headline & Layered Butterfly)
+   ========================================================================== */
+.hero-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Oversized Editorial Headline positioned high in the stage */
+.headline-container {
+  position: absolute;
+  bottom: var(--hl-bottom);
+  left: var(--hl-left);
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.headline-mask-group {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  font-family: var(--font-editorial);
+  font-size: var(--hl-font-size);
+  font-weight: 450;
+  font-variation-settings: 'opsz' 10, 'wght' 450;
+  -webkit-text-stroke: 0.11cqw var(--color-crimson);
+  font-style: normal;
+  color: var(--color-crimson);
+  line-height: 0.82;
+  letter-spacing: 0.038em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: scale(var(--hl-scale-x), var(--hl-scale-y));
+  transform-origin: center bottom;
+}
+
+.word-wrapper {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.word-wrapper[data-word="SHE"] {
+  letter-spacing: 0.052em;
+}
+
+.word-wrapper[data-word="BUILDS"] {
+  letter-spacing: 0.034em;
+}
+
+/* Optical kerning adjustments per character to match target letter positions */
+.char-mask[data-char="L"] {
+  margin-right: -0.04em;
+}
+
+.headline-spacer {
+  display: inline-block;
+  width: 0.34em;
+}
+
+/* Nested Overflow-Hidden Masks for Letterform Reveal */
+.char-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-top: 0.06em;
+  padding-bottom: 0.06em;
+  margin-bottom: -0.06em;
+}
+
+.char-inner {
+  display: inline-block;
+  transform: translateY(112%);
+  will-change: transform;
+}
+
+/* ==========================================================================
+   Butterfly Stage
+   ========================================================================== */
+.butterfly-stage {
+  position: absolute;
+  top: var(--bf-top);
+  left: var(--bf-left);
+  transform: translate(-50%, -50%) scaleY(var(--bf-scale-y));
+  width: var(--bf-width);
+  aspect-ratio: 3284 / 1916;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.butterfly-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.butterfly-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Cream Butterfly: Base layer (always stays fully opaque beneath mask) */
+.cream-layer {
+  z-index: 1;
+}
+
+/* Orange Butterfly: Revealing layer with organic progressive wing mask */
+.orange-layer {
+  z-index: 2;
+  -webkit-mask-image: radial-gradient(
+    ellipse 75% 65% at 50% 52%,
+    #000000 0%,
+    #000000 var(--reveal-stop1, 0%),
+    rgba(0, 0, 0, 0) var(--reveal-stop2, 0%)
+  );
+  mask-image: radial-gradient(
+    ellipse 75% 65% at 50% 52%,
+    #000000 0%,
+    #000000 var(--reveal-stop1, 0%),
+    rgba(0, 0, 0, 0) var(--reveal-stop2, 0%)
+  );
+  will-change: mask-image, -webkit-mask-image;
+}
+
+/* Interactive Liquid-Glass & ShaderGradient WebGL Overlay Canvas */
+.butterfly-liquid-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ==========================================================================
+   Hero Footer (Supporting Copy Only — Bottom-Right Apply Now Removed)
+   ========================================================================== */
+.hero-footer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 30;
+}
+
+/* Lower-Left Supporting Copy */
+.supporting-copy {
+  position: absolute;
+  bottom: 13.5%;
+  left: 5.8%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  pointer-events: auto;
+}
+
+.copy-text {
+  font-family: var(--font-sans);
+  font-size: calc(1.54 * var(--u));
+  line-height: 1.42;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  letter-spacing: 0.015em;
+}
+
+.accent-rule {
+  width: calc(2.8 * var(--u));
+  height: 1.6px;
+  background-color: var(--color-rule);
+  margin-top: calc(1.4 * var(--u));
+  border-radius: 1px;
+}
+
+/* ==========================================================================
+   Discreet Timeline Scrubber & Inspector (Collapsible / Non-intrusive)
+   ========================================================================== */
+.timeline-inspector {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background: rgba(18, 19, 24, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  padding: 6px 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.timeline-inspector.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.inspector-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.insp-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #EEEEEE;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.insp-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.insp-time {
+  font-family: monospace;
+  font-size: 11px;
+  color: #BD1E18;
+  font-weight: 600;
+  min-width: 52px;
+}
+
+.insp-slider {
+  width: 160px;
+  accent-color: #BD1E18;
+  cursor: pointer;
+}
+
+.insp-quick-frames {
+  display: flex;
+  gap: 4px;
+}
+
+.frame-tag {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: #AAAAAA;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.frame-tag:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Accessibility: prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .char-inner {
+    transform: translateY(0%) !important;
+  }
+  .orange-layer {
+    --reveal-stop1: 100% !important;
+    --reveal-stop2: 130% !important;
+  }
+  .supporting-copy,
+  .editorial-header {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

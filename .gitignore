@@ -1,0 +1,38 @@
+# Dependencies & Environment
+node_modules/
+.env
+.env.local
+.DS_Store
+Thumbs.db
+
+# Vendor & reference repositories
+_vendor_repos/
+liquid-glass-js/
+shadergradient/
+.freebuff/
+.chrome_verify_liquid/
+rimuru-tempest-*/
+
+# Unused or legacy experiment files
+in-the-making-dark.*
+*.mp4
+Hot Pink Pixel Butterfly.png
+
+frames/
+*.ps1
+test_*
+measure_*
+measure.*
+check_*
+crop_*
+capture*.js
+compare*.js
+find_*
+calc.js
+sample_*
+scan_*
+print_*
+stitch_*
+recursive_compare.js
+verify_liquid_and_layout.js
+extract_*

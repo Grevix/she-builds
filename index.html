@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FAF4F1" />
+  <title>SHE BUILDS — Open Innovation Program</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="stylesheet" href="fonts/fonts.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="rotate-prompt.css" />
+</head>
+<body>
+  <!-- Outer bezel/frame container matching the reference presentation -->
+  <div class="viewport-canvas">
+    <main class="editorial-card">
+      
+      <!-- Top Slim Navigation Header -->
+      <header class="editorial-header">
+        <a href="#home" class="brand-wordmark" aria-label="SHE BUILDS Home">
+          <span class="brand-she">SHE</span>
+          <span class="brand-builds">BUILDS</span>
+        </a>
+
+        <nav class="editorial-nav" aria-label="Primary Navigation">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="program.html" class="nav-link">Program</a>
+          <a href="in-the-making.html" class="nav-link">In the Making</a>
+          <a href="about.html" class="nav-link">About</a>
+        </nav>
+
+        <div class="header-action">
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdGEmjYs1rFNyPC5cWUqN_fDjASpUJD3lF-VQALCAc3NDqCiw/viewform?usp=header"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-apply-pill"
+            aria-label="Apply to SHE BUILDS"
+          >Apply ↗</a>
+        </div>
+      </header>
+
+      <!-- Hero Centerpiece: Giant Headline & Layered Butterfly -->
+      <section class="hero-stage">
+        
+        <!-- Giant Editorial Headline with Nested Overflow-Hidden Masks -->
+        <div class="headline-container" aria-label="SHE BUILDS">
+          <div class="headline-mask-group" id="headlineGroup">
+            <!-- Word 1: SHE -->
+            <span class="word-wrapper" data-word="SHE"><span class="char-mask" data-char="S1"><span class="char-inner">S</span></span><span class="char-mask" data-char="H"><span class="char-inner">H</span></span><span class="char-mask" data-char="E"><span class="char-inner">E</span></span></span><span class="headline-spacer"> </span><span class="word-wrapper" data-word="BUILDS"><span class="char-mask" data-char="B"><span class="char-inner">B</span></span><span class="char-mask" data-char="U"><span class="char-inner">U</span></span><span class="char-mask" data-char="I"><span class="char-inner">I</span></span><span class="char-mask" data-char="L"><span class="char-inner">L</span></span><span class="char-mask" data-char="D"><span class="char-inner">D</span></span><span class="char-mask" data-char="S2"><span class="char-inner">S</span></span></span>
+          </div>
+        </div>
+
+        <!-- Butterfly Layer: Center Stage overlapping the headline -->
+        <div class="butterfly-stage" id="butterflyStage">
+          <!-- Cream Butterfly (Base state) -->
+          <div class="butterfly-layer cream-layer" id="creamLayer">
+            <img 
+              src="Cream Butterfly with Floral Vine Wings.png" 
+              alt="Cream Butterfly with Floral Vine Wings" 
+              class="butterfly-img"
+              id="creamImg"
+            />
+          </div>
+
+          <!-- Orange Butterfly (Revealed state with dynamic organic mask) -->
+          <div class="butterfly-layer orange-layer" id="orangeLayer">
+            <img 
+              src="Ornate Orange Butterfly with Floral Wings.png" 
+              alt="Ornate Orange Butterfly with Floral Wings" 
+              class="butterfly-img"
+              id="orangeImg"
+            />
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Bottom Hero Content -->
+      <footer class="hero-footer">
+        <!-- Lower-left supporting copy -->
+        <div class="supporting-copy">
+          <p class="copy-text">
+            A three-month open<br />
+            innovation program<br />
+            for girls to turn ideas<br />
+            into real projects.
+          </p>
+          <div class="accent-rule"></div>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- Optional Discreet Timeline Scrubber & Inspector (can be toggled with 'D' key) -->
+  <aside class="timeline-inspector" id="timelineInspector" aria-label="Animation Inspector">
+    <div class="inspector-bar">
+      <button class="insp-btn" id="btnReplay" title="Replay">↺ Replay</button>
+      <button class="insp-btn" id="btnPlayPause" title="Play/Pause">⏸</button>
+      <span class="insp-time" id="inspTime">0 ms</span>
+      <input type="range" class="insp-slider" id="inspSlider" min="0" max="3000" step="10" value="0" />
+      <div class="insp-quick-frames">
+        <button class="frame-tag" data-t="0">0</button>
+        <button class="frame-tag" data-t="500">500</button>
+        <button class="frame-tag" data-t="1000">1000</button>
+        <button class="frame-tag" data-t="1500">1500</button>
+        <button class="frame-tag" data-t="2000">2000</button>
+        <button class="frame-tag" data-t="2500">2500</button>
+        <button class="frame-tag" data-t="3000">3000</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- GSAP Core Library -->
+  <script src="lib/gsap.min.js"></script>
+  <!-- Motion Choreography & Application Script -->
+  <script src="main.js"></script>
+  <!-- Interactive Liquid-Glass & ShaderGradient Butterfly Brush Engine -->
+  <script src="butterfly-liquid.js"></script>
+  <!-- Mandatory Orientation & Cross-Platform Responsive Engine -->
+  <script src="rotate-prompt.js"></script>
+</body>
+</html>

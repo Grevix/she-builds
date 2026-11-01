@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FAF3EF" />
+  <title>Program — SHE BUILDS</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="stylesheet" href="fonts/fonts.css" />
+  <link rel="stylesheet" href="program.css" />
+  <link rel="stylesheet" href="rotate-prompt.css" />
+</head>
+<body>
+  <div class="program-viewport">
+    <main class="program-stage" aria-label="SHE BUILDS Program">
+
+      <!-- 1. Top Navigation Bar -->
+      <header class="program-header">
+        <a href="index.html" class="brand-wordmark" aria-label="SHE BUILDS Home">
+          <span class="brand-she">SHE</span>
+          <span class="brand-builds">BUILDS</span>
+        </a>
+
+        <nav class="program-nav" aria-label="Primary Navigation">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="program.html" class="nav-link active" aria-current="page">Program</a>
+          <a href="in-the-making.html" class="nav-link">In the Making</a>
+          <a href="about.html" class="nav-link">About</a>
+        </nav>
+
+        <div class="header-action">
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdGEmjYs1rFNyPC5cWUqN_fDjASpUJD3lF-VQALCAc3NDqCiw/viewform?usp=header"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-apply"
+            aria-label="Apply to SHE BUILDS"
+          >Apply ↗</a>
+        </div>
+      </header>
+
+      <!-- 2. Hero Section -->
+      <section class="program-hero" aria-label="Program Hero">
+
+        <!-- A. Enormous Uppercase Red Editorial Serif Heading (Enters from top) -->
+        <div class="hero-title-layer" aria-hidden="false">
+          <h1 class="program-hero-title" id="programHeroTitle">PROGRAM</h1>
+        </div>
+
+        <!-- B. Left-Side Editorial Description Block -->
+        <div class="hero-left-info">
+          <h2 class="section-italic-heading">
+            <span>The</span>
+            <span>Program</span>
+          </h2>
+          <div class="section-short-rule" aria-hidden="true"></div>
+          <p class="section-description">
+            A three-month open innovation program for girls to turn ideas into real projects.
+          </p>
+        </div>
+
+        <!-- C. Decorative Background Graphics (Red Pixel Checker + Fine Technical Grid) -->
+        <div class="decor-pixel-checker" aria-hidden="true"></div>
+        <div class="decor-tech-grid" aria-hidden="true"></div>
+
+        <!-- D. Central Monochrome Subject Overlapping PROGRAM Heading -->
+        <div class="hero-central-subject" aria-hidden="true">
+          <!-- Back segment of orbital curve (behind top-right of subject) -->
+          <svg class="orbital-curve-svg orbital-back" viewBox="0 0 1024 484" preserveAspectRatio="none">
+            <path
+              d="M 565 190 C 635 178, 684 192, 680 230"
+              fill="none"
+              stroke="#151515"
+              stroke-width="1.65"
+              stroke-linecap="round"
+            />
+          </svg>
+
+          <img
+            src="program_subject.png"
+            alt="Monochrome editorial portrait representing a SHE BUILDS creator in motion"
+            class="subject-cutout-img"
+            draggable="false"
+          />
+
+          <!-- Front segment of orbital curve & star anchor points -->
+          <svg class="orbital-curve-svg orbital-front" viewBox="0 0 1024 484" preserveAspectRatio="none">
+            <!-- Smooth orbital trajectory curving around the central portrait -->
+            <path
+              d="M 380 278 C 350 315, 368 336, 448 327 C 532 316, 650 266, 680 230"
+              fill="none"
+              stroke="#8C8480"
+              stroke-width="1.15"
+              stroke-opacity="0.7"
+            />
+            <path
+              d="M 412 329 C 495 325, 618 282, 678 232"
+              fill="none"
+              stroke="#FFFDFB"
+              stroke-width="1.65"
+              stroke-linecap="round"
+            />
+            <!-- Lower-left 4-point star anchor point -->
+            <path
+              d="M 449 306 Q 449 327 428 327 Q 449 327 449 348 Q 449 327 470 327 Q 449 327 449 306 Z"
+              fill="#FFFFFF"
+              stroke="#232323"
+              stroke-width="0.8"
+            />
+            <!-- Upper-right 4-point star anchor point (near Program.txt) -->
+            <path
+              d="M 680 214 Q 680 230 666 230 Q 680 230 680 246 Q 680 230 694 230 Q 680 230 680 214 Z"
+              fill="#151515"
+            />
+          </svg>
+        </div>
+
+        <!-- E. Three Independent Interactive Retro Windows 95/98 Panels -->
+
+        <!-- Window 1: SHE BUILDS.exe (Left of subject, pixel-art butterfly) -->
+        <article
+          class="retro-window window-she-builds"
+          id="win-she-builds"
+          data-window-id="she-builds"
+           data-window-title="SHE BUILDS.exe"
+          aria-label="SHE BUILDS.exe window"
+        >
+          <header class="retro-titlebar titlebar-blue">
+            <span class="retro-title-text">SHE BUILDS.exe</span>
+            <div class="retro-controls">
+              <button
+                type="button"
+                class="retro-btn retro-btn-min"
+                data-action="close"
+                data-target="she-builds"
+                aria-label="Minimize SHE BUILDS.exe"
+                title="Minimize"
+              >_</button>
+              <button
+                type="button"
+                class="retro-btn retro-btn-max"
+                aria-label="Maximize disabled"
+                title="Resize disabled"
+                disabled
+              ><span class="max-box"></span></button>
+              <button
+                type="button"
+                class="retro-btn retro-btn-close"
+                data-action="close"
+                data-target="she-builds"
+                aria-label="Close SHE BUILDS.exe"
+                title="Close"
+              >×</button>
+            </div>
+          </header>
+          <div class="retro-body body-she-builds" id="pixelButterflyStage" title="Hover to flutter pixels">
+            <canvas
+              id="pixelButterflyCanvas"
+              class="pixel-butterfly-canvas"
+              width="156"
+              height="74"
+              aria-label="Monochrome pixel-art butterfly illustration"
+            ></canvas>
+          </div>
+        </article>
+
+        <!-- Window 2: Program.txt (Upper-right of subject) -->
+        <article
+          class="retro-window window-program-txt"
+          id="win-program-txt"
+          data-window-id="program-txt"
+          data-window-title="Program.txt"
+          aria-label="Program.txt window"
+        >
+          <header class="retro-titlebar titlebar-classic">
+            <span class="retro-title-text">Program.txt</span>
+            <div class="retro-controls">
+              <button
+                type="button"
+                class="retro-btn retro-btn-min"
+                data-action="close"
+                data-target="program-txt"
+                aria-label="Minimize Program.txt"
+                title="Minimize"
+              >_</button>
+              <button
+                type="button"
+                class="retro-btn retro-btn-max"
+                aria-label="Maximize disabled"
+                title="Resize disabled"
+                disabled
+              ><span class="max-box"></span></button>
+              <button
+                type="button"
+                class="retro-btn retro-btn-close"
+                data-action="close"
+                data-target="program-txt"
+                aria-label="Close Program.txt"
+                title="Close"
+              >×</button>
+            </div>
+          </header>
+          <div class="retro-body body-program-txt">
+            <ul class="program-txt-list" role="list">
+              <li class="program-txt-line" tabindex="0" role="button" data-line="0">
+                <span class="line-prompt">&gt;</span>
+                <span class="line-label">3 months</span>
+                <span class="line-ping" aria-hidden="true"></span>
+              </li>
+              <li class="program-txt-line" tabindex="0" role="button" data-line="1">
+                <span class="line-prompt">&gt;</span>
+                <span class="line-label">build</span>
+                <span class="line-ping" aria-hidden="true"></span>
+              </li>
+              <li class="program-txt-line" tabindex="0" role="button" data-line="2">
+                <span class="line-prompt">&gt;</span>
+                <span class="line-label">learn</span>
+                <span class="line-ping" aria-hidden="true"></span>
+              </li>
+              <li class="program-txt-line" tabindex="0" role="button" data-line="3">
+                <span class="line-prompt">&gt;</span>
+                <span class="line-label">collaborate</span>
+                <span class="line-ping" aria-hidden="true"></span>
+              </li>
+              <li class="program-txt-line" tabindex="0" role="button" data-line="4">
+                <span class="line-prompt">&gt;</span>
+                <span class="line-label">ship</span>
+                <span class="line-ping" aria-hidden="true"></span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Window 3: progress.exe (Lower-right of subject, animated 0% -> 72% red segmented progress bar) -->
+        <article
+          class="retro-window window-progress-exe"
+          id="win-progress-exe"
+          data-window-id="progress-exe"
+          data-window-title="progress.exe"
+          aria-label="progress.exe window"
+        >
+          <header class="retro-titlebar titlebar-blue">
+            <span class="retro-title-text">progress.exe</span>
+            <div class="retro-controls">
+              <button
+                type="button"
+                class="retro-btn retro-btn-min"
+                data-action="close"
+                data-target="progress-exe"
+                aria-label="Minimize progress.exe"
+                title="Minimize"
+              >_</button>
+              <button
+                type="button"
+                class="retro-btn retro-btn-max"
+                aria-label="Maximize disabled"
+                title="Resize disabled"
+                disabled
+              ><span class="max-box"></span></button>
+              <button
+                type="button"
+                class="retro-btn retro-btn-close"
+                data-action="close"
+                data-target="progress-exe"
+                aria-label="Close progress.exe"
+                title="Close"
+              >×</button>
+            </div>
+          </header>
+          <div class="retro-body body-progress-exe">
+            <div
+              class="progress-track-well"
+              role="progressbar"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+              id="progressBarWell"
+            >
+              <div class="progress-segments" id="progressSegments">
+                <!-- 10 segmented blocks filled dynamically from 0% to 72% -->
+                <span class="prog-seg" data-seg="0"><span class="prog-seg-fill"></span></span>
+                <span class="prog-seg" data-seg="1"><span class="prog-seg-fill"></span></span>
+                <span class="prog-seg" data-seg="2"><span class="prog-seg-fill"></span></span>
+                <span class="prog-seg" data-seg="3"><span class="prog-seg-fill"></span></span>
+                <span class="prog-seg" data-seg="4"><span class="prog-seg-fill"></span></span>
+                <span class="prog-seg" data-seg="5"><span class="prog-seg-fill"></span></span>
+                <span class="prog-seg" data-seg="6"><span class="prog-seg-fill"></span></span>
+                <span class="prog-seg" data-seg="7"><span class="prog-seg-fill"></span></span>
+                <span class="prog-seg" data-seg="8"><span class="prog-seg-fill"></span></span>
+                <span class="prog-seg" data-seg="9"><span class="prog-seg-fill"></span></span>
+              </div>
+            </div>
+            <span class="progress-pct-label" id="progressPctLabel">0%</span>
+          </div>
+        </article>
+
+        <!-- F. Minimal Retro Reopen Utility Dock (Only visible when at least one window is closed) -->
+        <div class="retro-reopen-dock is-hidden" id="retroReopenDock" aria-label="Closed desktop windows">
+          <span class="dock-label">Desktop:</span>
+          <div class="dock-buttons" id="dockButtons"></div>
+        </div>
+
+      </section>
+
+      <!-- 3. Three-Month Program Timeline Cards -->
+      <section class="program-timeline" aria-label="Three-Month Program Timeline">
+
+        <!-- Card 01 -->
+        <article class="timeline-card">
+          <div class="card-content">
+            <div class="card-month">MONTH 1</div>
+            <h3 class="card-title">EXPLORE</h3>
+            <p class="card-desc">
+              Take your idea forward freely. Experiment, research and shape it in your own way.
+            </p>
+          </div>
+          <div class="card-number" aria-hidden="true">01</div>
+        </article>
+
+        <!-- Arrow 1 -->
+        <div class="timeline-arrow" aria-hidden="true">→</div>
+
+        <!-- Card 02 -->
+        <article class="timeline-card">
+          <div class="card-content">
+            <div class="card-month">MONTH 2</div>
+            <h3 class="card-title">BUILD TOGETHER</h3>
+            <p class="card-desc">
+              Form a team of up to 4 and get mentorship, collaboration and guidance from industry experts.
+            </p>
+          </div>
+          <div class="card-number" aria-hidden="true">02</div>
+        </article>
+
+        <!-- Arrow 2 -->
+        <div class="timeline-arrow" aria-hidden="true">→</div>
+
+        <!-- Card 03 -->
+        <article class="timeline-card">
+          <div class="card-content">
+            <div class="card-month">MONTH 3</div>
+            <h3 class="card-title">SHIP</h3>
+            <p class="card-desc">
+              Focus on final development, polish your project and prepare the story behind it.
+            </p>
+          </div>
+          <div class="card-number" aria-hidden="true">03</div>
+        </article>
+
+      </section>
+
+    </main>
+  </div>
+
+  <script src="program.js"></script>
+  <script src="rotate-prompt.js"></script>
+</body>
+</html>

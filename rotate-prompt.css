@@ -1,0 +1,236 @@
+/* ==========================================================================
+   SHE BUILDS — MANDATORY DEVICE ROTATION PROMPT & CROSS-PLATFORM OPTIMIZATIONS
+   Enforces horizontal landscape viewing for mobile, tablet, iOS, Android & Linux.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. The Mandatory Rotation Overlay
+   -------------------------------------------------------------------------- */
+#she-builds-rotate-overlay {
+  display: none;
+  position: fixed !important;
+  left: 0 !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  height: 100dvh !important;
+  z-index: 9999999 !important;
+  background-color: #0A0207;
+  background-image:
+    radial-gradient(circle at 50% 20%, rgba(225, 3, 93, 0.35) 0%, transparent 65%),
+    radial-gradient(circle at 80% 85%, rgba(195, 19, 17, 0.25) 0%, transparent 55%);
+  color: #FFFFFF;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 16px !important;
+  text-align: center;
+  box-sizing: border-box !important;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  overflow: hidden;
+  opacity: 1;
+}
+
+/* Activate overlay in portrait orientation on phones and tablets */
+@media screen and (orientation: portrait) and (max-width: 1024px) {
+  #she-builds-rotate-overlay {
+    display: flex !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+
+/* Fallback for aspect ratios narrower than square (e.g. Android foldables or custom viewports) */
+@media screen and (max-aspect-ratio: 1/1) and (max-width: 1024px) {
+  #she-builds-rotate-overlay {
+    display: flex !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+
+/* JavaScript class hook for absolute certainty across exotic browsers & iOS */
+html.force-portrait #she-builds-rotate-overlay,
+body.force-portrait #she-builds-rotate-overlay {
+  display: flex !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* When in landscape mode, completely suppress the overlay */
+@media screen and (orientation: landscape) {
+  html:not(.force-portrait) #she-builds-rotate-overlay,
+  body:not(.force-portrait) #she-builds-rotate-overlay {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. Rotation Modal Content & Typography
+   -------------------------------------------------------------------------- */
+.rotate-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 320px;
+  margin: auto !important;
+  background: rgba(18, 6, 14, 0.92);
+  border: 1px solid rgba(225, 3, 93, 0.4);
+  border-radius: 18px;
+  padding: clamp(24px, 5vh, 32px) 20px;
+  box-shadow: 0 0 40px rgba(225, 3, 93, 0.25), inset 0 0 20px rgba(225, 3, 93, 0.1);
+  box-sizing: border-box;
+}
+
+.rotate-brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.28em;
+  font-family: 'Bodoni Moda', 'Didot', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+
+.rotate-brand-she {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-text-stroke: 0.35px #FFFFFF;
+}
+
+.rotate-brand-builds {
+  font-style: italic;
+  font-weight: 600;
+  -webkit-text-stroke: 0.3px #FFFFFF;
+}
+
+/* Animated Smartphone SVG Graphic */
+.rotate-graphic {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rotate-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Continuous 3D/2D Phone Rotation Animation */
+.rotate-device-icon {
+  transform-origin: 50px 50px;
+  animation: phoneTurn 2.6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes phoneTurn {
+  0%, 15% {
+    transform: rotate(0deg);
+  }
+  45%, 70% {
+    transform: rotate(90deg);
+  }
+  90%, 100% {
+    transform: rotate(0deg);
+  }
+}
+
+.rotate-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.rotate-title {
+  font-family: 'Bodoni Moda', 'Didot', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0 0 12px 0;
+  line-height: 1.15;
+  white-space: normal;
+}
+
+.rotate-desc {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+  max-width: 280px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Universal Cross-Platform Responsive & Touch Optimizations
+   -------------------------------------------------------------------------- */
+
+/* Safe area support for iPhone Dynamic Island, notches, and Android cutouts */
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+}
+
+/* Touch devices (iOS, Android, touchscreen tablets) */
+@media (pointer: coarse), (hover: none) {
+  /* Suppress custom desktop cursors so taps and gestures remain crisp and direct */
+  *, a, button, [role="button"], input, label {
+    cursor: auto !important;
+  }
+
+  /* Disable iOS double-tap zoom delay */
+  a, button, input, textarea, select {
+    touch-action: manipulation;
+  }
+}
+
+/* Mobile landscape view (e.g. smartphone rotated horizontally ~360-450px height) */
+@media screen and (orientation: landscape) and (max-height: 540px) {
+  html, body {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    height: auto !important;
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+
+  /* Ensure padding respects device notch when phone is held sideways */
+  .editorial-header,
+  .about-header,
+  .program-header,
+  .under-header {
+    padding-left: max(16px, env(safe-area-inset-left)) !important;
+    padding-right: max(16px, env(safe-area-inset-right)) !important;
+  }
+
+  /* Allow the stage container to scroll gracefully if content exceeds small landscape height */
+  .viewport-canvas,
+  .about-viewport,
+  .program-viewport,
+  .under-stage {
+    min-height: 100vh;
+    min-height: 100svh;
+    height: auto !important;
+    overflow-y: visible !important;
+  }
+}
