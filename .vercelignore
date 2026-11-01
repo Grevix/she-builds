@@ -1,7 +1,17 @@
-# Exclude local dev server so Vercel treats this as a pure static deployment
+# Vercel Deployment Ignore Rules
+# Exclude Node dev server and package manifest so Vercel serves the site purely statically
 server.js
+package.json
+package-lock.json
+
+# Exclude vendor, local captures, benchmarks, and debug scripts
 _vendor_repos/
 frames/
+cursors/
+rimuru-tempest-*/
+.chrome_verify_liquid/
+.cloud-attachments/
+.freebuff/
 *.ps1
 test_*
 measure_*
@@ -17,3 +27,4 @@ print_*
 stitch_*
 recursive_compare.js
 verify_liquid_and_layout.js
+extract_*
