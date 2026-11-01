@@ -4,6 +4,9 @@ node_modules/
 .env.local
 .DS_Store
 Thumbs.db
+dev-server.js
+package.json
+package-lock.json
 
 # Vendor & reference repositories
 _vendor_repos/
