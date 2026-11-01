@@ -1,0 +1,19 @@
+# Exclude local dev server so Vercel treats this as a pure static deployment
+server.js
+_vendor_repos/
+frames/
+*.ps1
+test_*
+measure_*
+check_*
+crop_*
+capture*.js
+compare*.js
+find_*
+calc.js
+sample_*
+scan_*
+print_*
+stitch_*
+recursive_compare.js
+verify_liquid_and_layout.js

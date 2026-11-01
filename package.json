@@ -1,18 +1,17 @@
 {
   "name": "she-builds",
   "version": "1.0.0",
-  "description": "SHE BUILDS — Editorial Landing Page & Premium Butterfly Mask Reveal",
-  "main": "server.js",
+  "description": "SHE BUILDS — Open Innovation Program",
+  "private": true,
   "scripts": {
-    "build": "echo Static build complete",
     "start": "node server.js"
   },
   "keywords": [
     "she-builds",
     "motion-design",
     "editorial",
-    "butterfly-mask-reveal"
+    "open-innovation"
   ],
-  "author": "",
+  "author": "GREVIX",
   "license": "ISC"
 }
