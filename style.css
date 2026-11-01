@@ -456,6 +456,40 @@ a, button, [role="button"], input, label,
   background: rgba(255, 255, 255, 0.2);
 }
 
+/* Mobile & Tablet Landscape Adaptations */
+@media (max-height: 560px), (max-width: 960px) {
+  .editorial-header {
+    top: 2.2%;
+    left: 4%;
+    right: 4%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .brand-wordmark {
+    font-size: clamp(16px, 2.2vw, 24px);
+    white-space: nowrap;
+  }
+
+  .editorial-nav {
+    gap: clamp(10px, 1.8vw, 24px);
+  }
+
+  .nav-link {
+    font-size: clamp(11px, 1.25vw, 14px);
+    white-space: nowrap;
+  }
+
+  .btn-apply-pill {
+    font-size: clamp(11px, 1.1vw, 13px);
+    padding: 4px clamp(10px, 1.4vw, 16px);
+    white-space: nowrap;
+  }
+}
+
 /* Accessibility: prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   .char-inner {

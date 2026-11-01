@@ -828,9 +828,9 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
 }
 
 /* ==========================================================================
-   5. Responsive Behaviour (Tablet & Mobile)
+   5. Responsive Behaviour (Mobile & Tablet Landscape / Compact Displays)
    ========================================================================== */
-@media (max-width: 960px) {
+@media (max-height: 560px), (max-width: 960px) {
   .program-viewport,
   .program-stage {
     width: 100%;
@@ -839,55 +839,74 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
     min-height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .program-stage {
     display: flex;
     flex-direction: column;
-    padding: 20px 5% 48px;
-    gap: 28px;
+    padding: 12px 4% 32px;
+    gap: 16px;
   }
 
+  /* Single-row, non-wrapping header */
   .program-header {
     position: relative;
     top: auto;
     left: auto;
     right: auto;
     height: auto;
-    flex-wrap: wrap;
-    gap: 14px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(201, 24, 24, 0.08);
   }
 
   .brand-wordmark {
-    font-size: 20px;
+    font-size: clamp(16px, 2.2vw, 22px);
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .program-nav {
     position: static;
     transform: none;
-    order: 3;
-    width: 100%;
+    order: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: clamp(10px, 1.8vw, 24px);
+    flex-shrink: 1;
   }
 
   .nav-link {
-    font-size: 14px;
+    font-size: clamp(11px, 1.25vw, 14px);
+    white-space: nowrap;
   }
 
   .btn-apply {
-    font-size: 13px;
-    padding: 6px 18px;
+    order: 3;
+    font-size: clamp(11px, 1.1vw, 13px);
+    padding: 4px clamp(10px, 1.4vw, 16px);
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
+  /* Hero Section in Landscape */
   .program-hero {
     position: relative;
     inset: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
-    padding-top: 8px;
+    gap: 12px;
+    padding-top: 4px;
+    width: 100%;
   }
 
   .hero-title-layer {
@@ -896,11 +915,14 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
     left: auto;
     transform: none;
     width: 100%;
+    text-align: center;
   }
 
   .program-hero-title {
-    font-size: clamp(68px, 21vw, 148px);
-    transform: scaleX(0.66);
+    font-size: clamp(40px, 8.5vw, 96px);
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+    transform: scaleX(0.78);
   }
 
   .hero-left-info {
@@ -908,25 +930,28 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
     left: auto;
     top: auto;
     width: 100%;
-    max-width: 440px;
+    max-width: 600px;
     align-items: center;
     text-align: center;
+    margin: 4px 0;
   }
 
   .section-italic-heading {
-    font-size: 28px;
+    font-size: clamp(18px, 2.5vw, 24px);
     flex-direction: row;
-    gap: 8px;
-    margin-bottom: 10px;
+    gap: 6px;
+    margin-bottom: 4px;
   }
 
   .section-short-rule {
-    width: 28px;
-    margin-bottom: 10px;
+    width: 24px;
+    margin-bottom: 6px;
   }
 
   .section-description {
-    font-size: 14px;
+    font-size: clamp(11px, 1.3vw, 13px);
+    line-height: 1.4;
+    max-width: 480px;
   }
 
   .decor-pixel-checker,
@@ -938,30 +963,32 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
   .hero-central-subject {
     position: relative;
     inset: auto;
-    width: min(76vw, 280px);
-    height: 230px;
-    margin: -18px auto 0;
+    width: auto;
+    max-width: 200px;
+    height: clamp(110px, 30vh, 180px);
+    margin: 0 auto;
   }
 
   .subject-cutout-img {
     position: relative;
     left: 0;
     top: 0;
-    width: 100%;
+    width: auto;
     height: 100%;
     object-fit: contain;
   }
 
-  /* Responsive Retro Windows Grid on Tablet/Mobile */
+  /* Compact Retro Windows on Mobile Landscape */
   .retro-window {
     position: relative !important;
     left: auto !important;
     top: auto !important;
-    width: min(90vw, 290px) !important;
+    width: min(88vw, 280px) !important;
+    margin: 4px auto;
   }
 
   .window-she-builds {
-    height: 128px !important;
+    height: 110px !important;
   }
 
   .window-program-txt {
@@ -969,38 +996,38 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
   }
 
   .body-program-txt {
-    padding: 10px 12px;
+    padding: 8px 10px;
   }
 
   .program-txt-line {
-    font-size: 13px;
-    padding: 3px 6px;
+    font-size: 11px;
+    padding: 2px 4px;
   }
 
   .window-progress-exe {
-    height: 72px !important;
+    height: 60px !important;
   }
 
   .retro-titlebar {
-    height: 22px;
-  }
-
-  .retro-title-text {
-    font-size: 12px;
-  }
-
-  .retro-btn {
-    width: 18px;
-    height: 16px;
-    font-size: 11px;
-  }
-
-  .progress-track-well {
     height: 20px;
   }
 
+  .retro-title-text {
+    font-size: 11px;
+  }
+
+  .retro-btn {
+    width: 16px;
+    height: 14px;
+    font-size: 10px;
+  }
+
+  .progress-track-well {
+    height: 18px;
+  }
+
   .progress-pct-label {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .retro-reopen-dock {
@@ -1009,49 +1036,60 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
     bottom: auto;
   }
 
-  /* Stack Timeline Cards Vertically on Smaller Screens */
+  /* 3 Horizontal Cards in Landscape — Never Stack Vertically */
   .program-timeline {
     position: relative;
     left: auto;
     right: auto;
     top: auto;
     height: auto;
-    flex-direction: column;
-    gap: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: clamp(8px, 1.4vw, 16px);
     width: 100%;
-    max-width: 500px;
+    max-width: 1000px;
     margin: 8px auto 0;
   }
 
   .timeline-arrow {
-    display: none;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 0 2px;
   }
 
   .timeline-card {
-    width: 100%;
-    min-height: 125px;
-    border-radius: 12px;
-    padding: 18px 20px;
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: clamp(85px, 22vh, 125px);
+    border-radius: 10px;
+    padding: 10px 12px;
+    position: relative;
+    overflow: hidden;
   }
 
   .card-month {
-    font-size: 11px;
-    margin-bottom: 4px;
+    font-size: clamp(9px, 1.1vw, 11px);
+    margin-bottom: 2px;
   }
 
   .card-title {
-    font-size: 26px;
-    margin-bottom: 8px;
+    font-size: clamp(14px, 1.8vw, 20px);
+    margin-bottom: 4px;
   }
 
   .card-desc {
-    font-size: 13px;
+    font-size: clamp(9.5px, 1.1vw, 11.5px);
+    line-height: 1.32;
+    max-width: 82%;
   }
 
   .card-number {
-    font-size: 46px;
-    right: 16px;
-    top: 12px;
+    font-size: clamp(24px, 3.8vw, 38px);
+    right: 8px;
+    top: 6px;
   }
 }
 

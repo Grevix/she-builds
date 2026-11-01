@@ -377,81 +377,93 @@ button {
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (Tablet, Mobile)
+   RESPONSIVE DESIGN (Tablet, Mobile Landscape & Compact Displays)
    ========================================================================== */
 
-@media (max-width: 820px) {
+@media (max-height: 560px), (max-width: 960px) {
   .under-stage {
-    padding: 18px 4% 28px;
+    padding: 12px 4% 18px;
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .under-header {
-    flex-wrap: wrap;
-    gap: 16px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
     height: auto;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .under-brand {
+    font-size: clamp(16px, 2.2vw, 22px);
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .under-nav {
     position: static;
     transform: none;
-    order: 3;
-    width: 100%;
+    order: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
-    gap: 20px;
-    padding-top: 4px;
+    gap: clamp(10px, 1.8vw, 24px);
+    flex-shrink: 1;
+    padding-top: 0;
+  }
+
+  .under-nav .nav-link {
+    font-size: clamp(11px, 1.25vw, 14px);
+    white-space: nowrap;
+  }
+
+  .btn-apply {
+    order: 3;
+    font-size: clamp(11px, 1.1vw, 13px);
+    padding: 4px clamp(10px, 1.4vw, 16px);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .under-hero {
+    gap: clamp(10px, 2vh, 18px);
+    padding: 10px 0;
+  }
+
+  .cone-wrap {
+    width: clamp(34px, 5.5vw, 52px);
+  }
+
+  .progress-track {
+    width: clamp(140px, 22vw, 220px);
+    height: 8px;
   }
 
   .under-headline {
-    line-height: 0.86;
+    line-height: 0.88;
   }
 
   .headline-under,
   .headline-construction {
-    font-size: clamp(38px, 10vw, 88px);
+    font-size: clamp(32px, 8.5vw, 88px);
   }
 
   .launch-note {
+    font-size: clamp(10px, 1.3vw, 13px);
     white-space: normal;
     padding: 0 16px;
     line-height: 1.4;
   }
 }
-
-@media (max-width: 480px) {
-  .under-stage {
-    padding: 16px 4% 24px;
-  }
-
-  .under-nav {
-    gap: 14px;
-  }
-
-  .under-nav .nav-link {
-    font-size: 13px;
-  }
-
-  .under-brand {
-    font-size: 19px;
-  }
-
-  .btn-apply {
-    font-size: 12px;
-    padding: 6px 14px;
-  }
-
-  .cone-wrap {
-    width: 66px;
-  }
-
-  .progress-track {
-    width: 120px;
-    height: 10px;
-  }
-
-  .headline-under,
-  .headline-construction {
-    font-size: clamp(30px, 10.5vw, 48px);
-  }
 
   .launch-note {
     font-size: 11px;

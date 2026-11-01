@@ -803,9 +803,9 @@ a:focus-visible, button:focus-visible {
 }
 
 /* ==========================================================================
-   4. Responsive Design (Tablet & Mobile)
+   4. Responsive Design (Mobile & Tablet Landscape / Compact Displays)
    ========================================================================== */
-@media (max-width: 960px) {
+@media (max-height: 560px), (max-width: 960px) {
   .about-viewport,
   .about-stage {
     width: 100%;
@@ -814,85 +814,107 @@ a:focus-visible, button:focus-visible {
     min-height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .about-stage {
     display: flex;
     flex-direction: column;
-    padding: 24px 6% 48px;
+    padding: 12px 4% 32px;
+    gap: 16px;
   }
 
+  /* Single-row, non-wrapping header */
   .about-header {
     position: relative;
     top: auto;
     left: auto;
     right: auto;
     height: auto;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-    gap: 16px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .brand-wordmark {
-    font-size: 20px;
+    font-size: clamp(16px, 2.2vw, 22px);
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .about-nav {
     position: static;
     transform: none;
-    gap: 22px;
-    order: 3;
-    width: 100%;
+    order: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
+    gap: clamp(10px, 1.8vw, 24px);
+    flex-shrink: 1;
   }
 
   .nav-link {
-    font-size: 14px;
+    font-size: clamp(11px, 1.25vw, 14px);
+    white-space: nowrap;
   }
 
   .btn-check-grevix {
-    font-size: 13px;
-    padding: 6px 16px;
+    order: 3;
+    font-size: clamp(11px, 1.1vw, 13px);
+    padding: 4px clamp(10px, 1.4vw, 16px);
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .about-hero {
     position: relative;
     inset: auto;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 44px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
   }
 
   .hero-left {
     position: relative;
     top: auto;
     left: auto;
-    width: 100%;
-    max-width: 520px;
+    flex: 1 1 280px;
+    max-width: 380px;
   }
 
   .tech-tag {
-    padding: 5px 10px;
-    margin-bottom: 18px;
+    padding: 4px 8px;
+    margin-bottom: 8px;
   }
 
   .tech-tag-text {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .about-heading {
-    font-size: clamp(44px, 9vw, 64px);
-    margin-bottom: 18px;
+    font-size: clamp(28px, 6vw, 48px);
+    margin-bottom: 10px;
   }
 
   .heading-rule {
-    width: 32px;
-    margin-bottom: 18px;
+    width: 24px;
+    margin-bottom: 10px;
   }
 
   .about-description {
-    font-size: 15px;
+    font-size: clamp(11px, 1.3vw, 13px);
+    line-height: 1.42;
     max-width: 100%;
   }
 
@@ -901,22 +923,23 @@ a:focus-visible, button:focus-visible {
     left: auto;
     top: auto;
     transform: none;
-    width: min(86vw, 340px);
-    height: min(86vw, 340px);
+    flex: 0 0 clamp(160px, 28vw, 260px);
+    height: clamp(160px, 28vw, 260px);
+    margin: 0 auto;
   }
 
   .hud-crosshair {
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
   }
 
   .hud-corner {
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
   }
 
   .ascii-butterfly {
-    font-size: clamp(6.2px, 1.85vw, 8.2px);
+    font-size: clamp(5px, 1.2vw, 7.5px);
   }
 
   .hero-vertical-divider {
@@ -927,27 +950,41 @@ a:focus-visible, button:focus-visible {
     position: relative;
     left: auto;
     top: auto;
-    width: 100%;
-    max-width: 520px;
-    border-top: 1px solid rgba(255, 255, 255, 0.35);
-    padding-top: 28px;
+    flex: 1 1 200px;
+    max-width: 280px;
+    border-top: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    padding-left: 16px;
+    padding-top: 0;
   }
 
   .founded-by-label {
-    font-size: 12px;
-    margin-bottom: 18px;
+    font-size: 10px;
+    margin-bottom: 8px;
   }
 
   .founder-name {
-    font-size: 24px;
+    font-size: 18px;
   }
 
   .founder-role {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .founder-divider {
-    margin: 16px 0;
+    margin: 10px 0;
+  }
+
+  .about-terms-link-wrap {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin-top: 16px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
   }
 
   .founder-accent-rule {

@@ -439,15 +439,41 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   5. Responsive Design
+   5. Responsive Design (Mobile Landscape & Compact Displays)
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
+  .terms-header-wrap {
+    padding: 10px 4%;
+  }
+
+  .terms-header {
+    flex-wrap: nowrap;
+    gap: 12px;
+  }
+
+  .brand-wordmark {
+    font-size: clamp(16px, 2.2vw, 22px);
+    white-space: nowrap;
+  }
+
   .terms-nav {
-    display: none;
+    display: flex;
+    gap: clamp(8px, 1.6vw, 18px);
+  }
+
+  .nav-link {
+    font-size: clamp(11px, 1.2vw, 13px);
+    white-space: nowrap;
+  }
+
+  .btn-apply {
+    font-size: clamp(11px, 1.1vw, 13px);
+    padding: 4px clamp(10px, 1.4vw, 16px);
+    white-space: nowrap;
   }
 
   .terms-page-container {
-    padding: 24px 16px 60px;
+    padding: 20px 16px 48px;
   }
 
   .terms-meta-grid {
@@ -456,6 +482,6 @@ body {
   }
 
   .section-highlight {
-    padding: 20px 16px;
+    padding: 18px 14px;
   }
 }
