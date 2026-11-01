@@ -824,40 +824,43 @@ a:focus-visible, button:focus-visible {
     gap: 16px;
   }
 
-  /* Single-row, non-wrapping header */
+  /* Single-row, non-wrapping header: Left Logo, Center Nav, Right Action */
   .about-header {
     position: relative;
     top: auto;
     left: auto;
     right: auto;
+    width: 100%;
     height: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
     align-items: center;
-    gap: 12px;
+    justify-content: space-between;
     margin-bottom: 8px;
-    padding-bottom: 4px;
+    padding-bottom: 6px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .brand-wordmark {
+    position: relative;
+    z-index: 2;
     font-size: clamp(16px, 2.2vw, 22px);
     white-space: nowrap;
     flex-shrink: 0;
   }
 
   .about-nav {
-    position: static;
-    transform: none;
-    order: 2;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: clamp(10px, 1.8vw, 24px);
-    flex-shrink: 1;
+    white-space: nowrap;
   }
 
   .nav-link {
@@ -865,12 +868,20 @@ a:focus-visible, button:focus-visible {
     white-space: nowrap;
   }
 
+  .header-action {
+    position: relative;
+    z-index: 2;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+  }
+
   .btn-check-grevix {
-    order: 3;
     font-size: clamp(11px, 1.1vw, 13px);
     padding: 4px clamp(10px, 1.4vw, 16px);
     white-space: nowrap;
-    flex-shrink: 0;
   }
 
   .about-hero {
@@ -878,10 +889,10 @@ a:focus-visible, button:focus-visible {
     inset: auto;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 20px;
+    gap: clamp(12px, 2vw, 24px);
     width: 100%;
   }
 
@@ -889,32 +900,41 @@ a:focus-visible, button:focus-visible {
     position: relative;
     top: auto;
     left: auto;
-    flex: 1 1 280px;
-    max-width: 380px;
+    flex: 1 1 33%;
+    max-width: 35%;
   }
 
   .tech-tag {
-    padding: 4px 8px;
-    margin-bottom: 8px;
+    padding: 3px 6px;
+    margin-bottom: 6px;
   }
 
   .tech-tag-text {
     font-size: 10px;
   }
 
+  .about-heading-line {
+    display: inline-flex;
+    overflow: visible !important;
+    white-space: nowrap !important;
+  }
+
   .about-heading {
-    font-size: clamp(28px, 6vw, 48px);
-    margin-bottom: 10px;
+    font-size: clamp(20px, 4.2vw, 36px);
+    white-space: nowrap;
+    overflow: visible;
+    margin-bottom: 8px;
+    line-height: 0.95;
   }
 
   .heading-rule {
-    width: 24px;
-    margin-bottom: 10px;
+    width: 22px;
+    margin-bottom: 8px;
   }
 
   .about-description {
-    font-size: clamp(11px, 1.3vw, 13px);
-    line-height: 1.42;
+    font-size: clamp(10.5px, 1.2vw, 12px);
+    line-height: 1.38;
     max-width: 100%;
   }
 
@@ -923,23 +943,23 @@ a:focus-visible, button:focus-visible {
     left: auto;
     top: auto;
     transform: none;
-    flex: 0 0 clamp(160px, 28vw, 260px);
-    height: clamp(160px, 28vw, 260px);
+    flex: 0 0 clamp(130px, 22vw, 200px);
+    height: clamp(130px, 22vw, 200px);
     margin: 0 auto;
   }
 
   .hud-crosshair {
-    width: 20px;
-    height: 20px;
-  }
-
-  .hud-corner {
     width: 18px;
     height: 18px;
   }
 
+  .hud-corner {
+    width: 16px;
+    height: 16px;
+  }
+
   .ascii-butterfly {
-    font-size: clamp(5px, 1.2vw, 7.5px);
+    font-size: clamp(4.2px, 0.95vw, 6.2px);
   }
 
   .hero-vertical-divider {
@@ -950,29 +970,29 @@ a:focus-visible, button:focus-visible {
     position: relative;
     left: auto;
     top: auto;
-    flex: 1 1 200px;
-    max-width: 280px;
+    flex: 1 1 27%;
+    max-width: 29%;
     border-top: none;
     border-left: 1px solid rgba(255, 255, 255, 0.2);
-    padding-left: 16px;
+    padding-left: 12px;
     padding-top: 0;
   }
 
   .founded-by-label {
-    font-size: 10px;
-    margin-bottom: 8px;
+    font-size: 9.5px;
+    margin-bottom: 6px;
   }
 
   .founder-name {
-    font-size: 18px;
+    font-size: clamp(15px, 2vw, 18px);
   }
 
   .founder-role {
-    font-size: 10px;
+    font-size: 9.5px;
   }
 
   .founder-divider {
-    margin: 10px 0;
+    margin: 8px 0;
   }
 
   .about-terms-link-wrap {

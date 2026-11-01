@@ -475,7 +475,18 @@ a, button, [role="button"], input, label,
   }
 
   .editorial-nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     gap: clamp(10px, 1.8vw, 24px);
+    white-space: nowrap;
+  }
+
+  .header-action {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }
 
   .nav-link {

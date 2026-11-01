@@ -391,33 +391,41 @@ button {
   }
 
   .under-header {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     gap: 12px;
-    height: auto;
-    padding-bottom: 4px;
+    padding-bottom: 6px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .under-brand {
+    position: relative;
+    z-index: 2;
     font-size: clamp(16px, 2.2vw, 22px);
     white-space: nowrap;
     flex-shrink: 0;
   }
 
   .under-nav {
-    position: static;
-    transform: none;
-    order: 2;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: clamp(10px, 1.8vw, 24px);
-    flex-shrink: 1;
+    white-space: nowrap;
     padding-top: 0;
   }
 
@@ -426,12 +434,20 @@ button {
     white-space: nowrap;
   }
 
+  .under-action {
+    position: relative;
+    z-index: 2;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+  }
+
   .btn-apply {
-    order: 3;
     font-size: clamp(11px, 1.1vw, 13px);
     padding: 4px clamp(10px, 1.4vw, 16px);
     white-space: nowrap;
-    flex-shrink: 0;
   }
 
   .under-hero {

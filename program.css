@@ -849,39 +849,42 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
     gap: 16px;
   }
 
-  /* Single-row, non-wrapping header */
+  /* Single-row, non-wrapping header: Left Logo, Center Nav, Right Action */
   .program-header {
     position: relative;
     top: auto;
     left: auto;
     right: auto;
+    width: 100%;
     height: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
     align-items: center;
-    gap: 12px;
-    padding-bottom: 4px;
+    justify-content: space-between;
+    padding-bottom: 6px;
     border-bottom: 1px solid rgba(201, 24, 24, 0.08);
   }
 
   .brand-wordmark {
+    position: relative;
+    z-index: 2;
     font-size: clamp(16px, 2.2vw, 22px);
     white-space: nowrap;
     flex-shrink: 0;
   }
 
   .program-nav {
-    position: static;
-    transform: none;
-    order: 2;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: clamp(10px, 1.8vw, 24px);
-    flex-shrink: 1;
+    white-space: nowrap;
   }
 
   .nav-link {
@@ -889,12 +892,20 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
     white-space: nowrap;
   }
 
+  .header-action {
+    position: relative;
+    z-index: 2;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+  }
+
   .btn-apply {
-    order: 3;
     font-size: clamp(11px, 1.1vw, 13px);
     padding: 4px clamp(10px, 1.4vw, 16px);
     white-space: nowrap;
-    flex-shrink: 0;
   }
 
   /* Hero Section in Landscape */
@@ -904,8 +915,8 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
-    padding-top: 4px;
+    gap: 8px;
+    padding-top: 2px;
     width: 100%;
   }
 
@@ -919,7 +930,7 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
   }
 
   .program-hero-title {
-    font-size: clamp(40px, 8.5vw, 96px);
+    font-size: clamp(34px, 7vw, 76px);
     line-height: 0.92;
     letter-spacing: -0.01em;
     transform: scaleX(0.78);
@@ -930,28 +941,28 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
     left: auto;
     top: auto;
     width: 100%;
-    max-width: 600px;
+    max-width: 520px;
     align-items: center;
     text-align: center;
-    margin: 4px 0;
+    margin: 2px 0 6px;
   }
 
   .section-italic-heading {
-    font-size: clamp(18px, 2.5vw, 24px);
+    font-size: clamp(16px, 2.2vw, 22px);
     flex-direction: row;
     gap: 6px;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
   }
 
   .section-short-rule {
-    width: 24px;
-    margin-bottom: 6px;
+    width: 22px;
+    margin-bottom: 4px;
   }
 
   .section-description {
-    font-size: clamp(11px, 1.3vw, 13px);
-    line-height: 1.4;
-    max-width: 480px;
+    font-size: clamp(10.5px, 1.2vw, 12.5px);
+    line-height: 1.35;
+    max-width: 440px;
   }
 
   .decor-pixel-checker,
@@ -964,8 +975,8 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
     position: relative;
     inset: auto;
     width: auto;
-    max-width: 200px;
-    height: clamp(110px, 30vh, 180px);
+    max-width: 180px;
+    height: clamp(90px, 24vh, 140px);
     margin: 0 auto;
   }
 
@@ -983,12 +994,14 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
     position: relative !important;
     left: auto !important;
     top: auto !important;
-    width: min(88vw, 280px) !important;
-    margin: 4px auto;
+    width: clamp(120px, 24vw, 170px) !important;
+    display: inline-block;
+    margin: 4px 6px !important;
+    vertical-align: top;
   }
 
   .window-she-builds {
-    height: 110px !important;
+    height: clamp(80px, 18vh, 105px) !important;
   }
 
   .window-program-txt {
@@ -996,16 +1009,16 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
   }
 
   .body-program-txt {
-    padding: 8px 10px;
+    padding: 6px 8px;
   }
 
   .program-txt-line {
-    font-size: 11px;
+    font-size: 10px;
     padding: 2px 4px;
   }
 
   .window-progress-exe {
-    height: 60px !important;
+    height: 50px !important;
   }
 
   .retro-titlebar {
