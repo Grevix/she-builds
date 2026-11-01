@@ -839,7 +839,6 @@ a:focus-visible, button:focus-visible {
     justify-content: space-between;
     margin-bottom: 8px;
     padding-bottom: 6px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .brand-wordmark {
@@ -1003,25 +1002,5 @@ a:focus-visible, button:focus-visible {
     width: 100%;
     display: flex;
     justify-content: flex-end;
-  }
-}
-  }
-
-  .founder-accent-rule {
-    width: 28px;
-    margin-bottom: 16px;
-  }
-
-  .founder-tagline {
-    font-size: 15px;
-  }
-
-  .about-bottom-bar {
-    position: relative;
-    left: auto;
-    right: auto;
-    top: auto;
-    width: 100%;
-    margin-top: 48px;
   }
 }

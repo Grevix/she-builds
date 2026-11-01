@@ -863,7 +863,6 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
     align-items: center;
     justify-content: space-between;
     padding-bottom: 6px;
-    border-bottom: 1px solid rgba(201, 24, 24, 0.08);
   }
 
   .brand-wordmark {

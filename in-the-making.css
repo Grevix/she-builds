@@ -404,7 +404,6 @@ button {
     justify-content: space-between;
     gap: 12px;
     padding-bottom: 6px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .under-brand {
@@ -478,11 +477,5 @@ button {
     white-space: normal;
     padding: 0 16px;
     line-height: 1.4;
-  }
-}
-
-  .launch-note {
-    font-size: 11px;
-    margin-top: 24px;
   }
 }
