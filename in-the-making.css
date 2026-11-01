@@ -265,7 +265,6 @@ button {
   font-weight: 700;
   font-style: normal;
   text-transform: uppercase;
-  color: var(--text-white);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -273,6 +272,25 @@ button {
   line-height: 1;
   margin: 0;
   user-select: none;
+  perspective: 1000px;
+}
+
+.headline-under,
+.headline-construction {
+  background: linear-gradient(
+    115deg,
+    #FFFFFF 0%,
+    #FFFFFF 38%,
+    #FFD2E5 48%,
+    #FFFFFF 58%,
+    #FFFFFF 100%
+  );
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--text-white);
+  will-change: transform, background-position, filter;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
 }
 
 .headline-under {
@@ -280,6 +298,9 @@ button {
   letter-spacing: 0.058em;
   display: block;
   line-height: 0.94;
+  animation:
+    headlineFloatUnder 6s ease-in-out infinite,
+    headlineShimmer 7s ease-in-out infinite;
 }
 
 .headline-construction {
@@ -288,6 +309,50 @@ button {
   display: block;
   line-height: 0.94;
   margin-top: 5px;
+  animation:
+    headlineFloatConstruction 6.4s ease-in-out infinite 0.35s,
+    headlineShimmer 7s ease-in-out infinite 0.7s;
+}
+
+.under-headline:hover .headline-under {
+  transform: translateY(-2px) scale(1.008);
+  filter: drop-shadow(0 6px 20px rgba(255, 255, 255, 0.35));
+}
+
+.under-headline:hover .headline-construction {
+  transform: translateY(2px) scale(1.008);
+  filter: drop-shadow(0 8px 24px rgba(255, 255, 255, 0.35));
+}
+
+@keyframes headlineShimmer {
+  0% {
+    background-position: 140% 0;
+  }
+  45%, 100% {
+    background-position: -40% 0;
+  }
+}
+
+@keyframes headlineFloatUnder {
+  0%, 100% {
+    transform: translateY(0px);
+    filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0));
+  }
+  50% {
+    transform: translateY(-3.5px);
+    filter: drop-shadow(0 4px 14px rgba(255, 255, 255, 0.22));
+  }
+}
+
+@keyframes headlineFloatConstruction {
+  0%, 100% {
+    transform: translateY(0px);
+    filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0));
+  }
+  50% {
+    transform: translateY(3.5px);
+    filter: drop-shadow(0 6px 16px rgba(255, 255, 255, 0.22));
+  }
 }
 
 /* 4. Launch-Date Note */

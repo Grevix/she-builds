@@ -36,11 +36,13 @@ she-builds/
 ├── program.html               # Program roadmap & Retro Windows desktop
 ├── in-the-making.html         # Under construction / In the making
 ├── about.html                 # About GREVIX & ASCII butterfly
+├── terms.html                 # Terms & Conditions legal documentation
 │
 ├── style.css                  # Home page styles & animations
 ├── program.css                # Program page styles & retro desktop UI
-├── in-the-making.css          # In the Making page styles
+├── in-the-making.css          # In the Making page styles & text animation
 ├── about.css                  # About page & HUD styles
+├── terms.css                  # Terms & Conditions editorial stylesheet
 ├── rotate-prompt.css          # Mandatory mobile rotation overlay styles
 │
 ├── main.js                    # Home motion orchestration
