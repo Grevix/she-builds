@@ -792,6 +792,16 @@ a:focus-visible, button:focus-visible {
   transform: translateY(-1px);
 }
 
+.terms-btn-icon {
+  stroke: currentColor;
+  flex-shrink: 0;
+  opacity: 0.88;
+}
+
+.terms-btn-arrow {
+  margin-left: 1px;
+}
+
 /* ==========================================================================
    4. Responsive Design (Tablet & Mobile)
    ========================================================================== */
