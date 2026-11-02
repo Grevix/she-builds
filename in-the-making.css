@@ -58,13 +58,15 @@ button {
 .under-stage {
   position: relative;
   width: 100vw;
-  min-height: 100vh;
-  min-height: 100svh;
+  height: 100vh;
+  height: 100dvh;
   background-color: var(--bg-magenta);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   overflow: hidden;
-  padding: 2.7vh 4.1% 24px 4.6%;
+  padding: clamp(10px, 2.7vh, 26px) 4.6% clamp(12px, 3vh, 30px);
 }
 
 /* ==========================================================================
@@ -74,10 +76,11 @@ button {
 .under-header {
   position: relative;
   width: 100%;
-  height: 7.5vh;
+  height: clamp(28px, 6.8vh, 44px);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-shrink: 0;
   z-index: 20;
 }
 
@@ -86,7 +89,7 @@ button {
   align-items: baseline;
   gap: 0.26em;
   font-family: var(--font-editorial);
-  font-size: calc(1.92 * var(--u));
+  font-size: clamp(15px, calc(1.92 * var(--u)), 24px);
   font-weight: 700;
   letter-spacing: 0.015em;
   line-height: 1;
@@ -113,12 +116,12 @@ button {
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  gap: calc(3.6 * var(--u));
+  gap: clamp(10px, calc(3.4 * var(--u)), 36px);
 }
 
 .under-nav .nav-link {
   font-family: var(--font-sans);
-  font-size: calc(1.26 * var(--u));
+  font-size: clamp(10.5px, calc(1.24 * var(--u)), 15px);
   font-weight: 400;
   letter-spacing: 0.015em;
   color: rgba(255, 255, 255, 0.90);
@@ -159,14 +162,14 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: calc(0.52 * var(--u)) calc(1.65 * var(--u));
+  padding: clamp(3px, calc(0.48 * var(--u)), 6px) clamp(10px, calc(1.8 * var(--u)), 18px);
   border: 1px solid rgba(255, 255, 255, 0.88);
   border-radius: 9999px;
   color: var(--text-white);
   font-family: var(--font-sans);
   font-style: italic;
   font-weight: 500;
-  font-size: calc(1.12 * var(--u));
+  font-size: clamp(10px, calc(1.12 * var(--u)), 13.5px);
   background: transparent;
   white-space: nowrap;
   text-decoration: none;
@@ -181,19 +184,21 @@ button {
 }
 
 /* ==========================================================================
-   2. MAIN HERO SECTION (Centered vertically & horizontally)
+   2. MAIN HERO SECTION (Centered vertically & horizontally, 100vh fit)
    ========================================================================== */
 
 .under-hero {
   position: relative;
   flex: 1;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   text-align: center;
   padding: 0;
   z-index: 10;
+  overflow: hidden;
 }
 
 /* Status Indicator: Cone + Animated Progress Bar */
@@ -202,17 +207,18 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: clamp(55px, 16.8vh, 180px);
-  margin-bottom: clamp(22px, 5.5vh, 50px);
+  margin: 0;
+  gap: clamp(6px, 1.2vh, 12px);
+  flex-shrink: 0;
 }
 
 .cone-wrap {
-  width: clamp(84px, 9.6vw, 140px);
+  width: clamp(36px, calc(5.2 * var(--u)), 80px);
   height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 12px;
+  margin: 0;
 }
 
 .cone-svg {
@@ -223,8 +229,8 @@ button {
 
 /* Functional Animated Progress Bar */
 .progress-track {
-  width: clamp(110px, 12.05vw, 195px);
-  height: clamp(9px, 1.9vh, 16px);
+  width: clamp(120px, calc(14 * var(--u)), 210px);
+  height: clamp(8px, calc(1.1 * var(--u)), 13px);
   border: 1.2px solid var(--text-white);
   background: transparent;
   padding: 1px;
@@ -269,10 +275,11 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  line-height: 1;
+  line-height: 0.92;
   margin: 0;
   user-select: none;
   perspective: 1000px;
+  flex-shrink: 0;
 }
 
 .headline-under,
@@ -280,9 +287,9 @@ button {
   background: linear-gradient(
     115deg,
     #FFFFFF 0%,
-    #FFFFFF 38%,
-    #FFD2E5 48%,
-    #FFFFFF 58%,
+    #FFFFFF 36%,
+    #FFB3D4 48%,
+    #FFFFFF 60%,
     #FFFFFF 100%
   );
   background-size: 260% 100%;
@@ -294,24 +301,24 @@ button {
 }
 
 .headline-under {
-  font-size: clamp(40px, 8.42vw, 146px);
+  font-size: clamp(32px, calc(7.4 * var(--u)), 120px);
   letter-spacing: 0.058em;
   display: block;
-  line-height: 0.94;
+  line-height: 0.92;
   animation:
-    headlineFloatUnder 6s ease-in-out infinite,
-    headlineShimmer 7s ease-in-out infinite;
+    headlineFloatUnder 5s ease-in-out infinite,
+    headlineShimmer 6s ease-in-out infinite;
 }
 
 .headline-construction {
-  font-size: clamp(40px, 8.42vw, 146px);
+  font-size: clamp(32px, calc(7.4 * var(--u)), 120px);
   letter-spacing: 0.003em;
   display: block;
-  line-height: 0.94;
-  margin-top: 5px;
+  line-height: 0.92;
+  margin-top: clamp(2px, 0.5vh, 6px);
   animation:
-    headlineFloatConstruction 6.4s ease-in-out infinite 0.35s,
-    headlineShimmer 7s ease-in-out infinite 0.7s;
+    headlineFloatConstruction 5.4s ease-in-out infinite 0.3s,
+    headlineShimmer 6s ease-in-out infinite 0.6s;
 }
 
 .under-headline:hover .headline-under {
@@ -328,7 +335,7 @@ button {
   0% {
     background-position: 140% 0;
   }
-  45%, 100% {
+  40%, 100% {
     background-position: -40% 0;
   }
 }
@@ -339,8 +346,8 @@ button {
     filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0));
   }
   50% {
-    transform: translateY(-3.5px);
-    filter: drop-shadow(0 4px 14px rgba(255, 255, 255, 0.22));
+    transform: translateY(-4px);
+    filter: drop-shadow(0 4px 14px rgba(255, 255, 255, 0.28));
   }
 }
 
@@ -350,19 +357,20 @@ button {
     filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0));
   }
   50% {
-    transform: translateY(3.5px);
-    filter: drop-shadow(0 6px 16px rgba(255, 255, 255, 0.22));
+    transform: translateY(4px);
+    filter: drop-shadow(0 6px 18px rgba(255, 255, 255, 0.28));
   }
 }
 
 /* 4. Launch-Date Note */
 .launch-note {
   font-family: var(--font-mono);
-  font-size: clamp(12.5px, 1.42vw, 22px);
+  font-size: clamp(10px, calc(1.15 * var(--u)), 16px);
   letter-spacing: 0.038em;
   color: var(--text-white);
-  margin-top: clamp(40px, 13.8vh, 110px);
+  margin: 0;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* ==========================================================================
@@ -374,108 +382,8 @@ button {
     animation: none;
     transition: none;
   }
-}
-
-/* ==========================================================================
-   RESPONSIVE DESIGN (Tablet, Mobile Landscape & Compact Displays)
-   ========================================================================== */
-
-@media (max-height: 560px), (max-width: 960px) {
-  .under-stage {
-    padding: 12px 4% 18px;
-    height: auto;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .under-header {
-    position: relative;
-    top: auto;
-    left: auto;
-    right: auto;
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding-bottom: 6px;
-  }
-
-  .under-brand {
-    position: relative;
-    z-index: 2;
-    font-size: clamp(16px, 2.2vw, 22px);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  .under-nav {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: clamp(10px, 1.8vw, 24px);
-    white-space: nowrap;
-    padding-top: 0;
-  }
-
-  .under-nav .nav-link {
-    font-size: clamp(11px, 1.25vw, 14px);
-    white-space: nowrap;
-  }
-
-  .under-action {
-    position: relative;
-    z-index: 2;
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-shrink: 0;
-  }
-
-  .btn-apply {
-    font-size: clamp(11px, 1.1vw, 13px);
-    padding: 4px clamp(10px, 1.4vw, 16px);
-    white-space: nowrap;
-  }
-
-  .under-hero {
-    gap: clamp(10px, 2vh, 18px);
-    padding: 10px 0;
-  }
-
-  .cone-wrap {
-    width: clamp(34px, 5.5vw, 52px);
-  }
-
-  .progress-track {
-    width: clamp(140px, 22vw, 220px);
-    height: 8px;
-  }
-
-  .under-headline {
-    line-height: 0.88;
-  }
-
   .headline-under,
   .headline-construction {
-    font-size: clamp(32px, 8.5vw, 88px);
-  }
-
-  .launch-note {
-    font-size: clamp(10px, 1.3vw, 13px);
-    white-space: normal;
-    padding: 0 16px;
-    line-height: 1.4;
+    animation: none;
   }
 }

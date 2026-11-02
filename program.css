@@ -828,280 +828,157 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
 }
 
 /* ==========================================================================
-   5. Responsive Behaviour (Mobile & Tablet Landscape / Compact Displays)
+   5. Responsive Scaling (Mobile Landscape, Tablets, iOS, Android & Desktop)
+      Preserve the identical laptop poster design across all devices:
+      - 100vh/100dvh single non-scrolling widescreen composition
+      - Centered woman cutout overlapping giant background PROGRAM headline
+      - Floating retro windows around the subject in their exact desktop positions
+      - Three horizontal timeline cards side-by-side along the bottom
    ========================================================================== */
-@media (max-height: 560px), (max-width: 960px) {
-  .program-viewport,
-  .program-stage {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    min-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
 
-  .program-stage {
-    display: flex;
-    flex-direction: column;
-    padding: 12px 4% 32px;
-    gap: 16px;
-  }
+/* Universal Clamped Dimensions for Proportional Fit Across All Viewports */
+.program-viewport,
+.program-stage {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background-color: var(--bg-ivory);
+  overflow: hidden;
+}
 
-  /* Single-row, non-wrapping header: Left Logo, Center Nav, Right Action */
+.brand-wordmark {
+  font-size: clamp(15px, calc(1.92 * var(--u)), 24px);
+}
+
+.nav-link {
+  font-size: clamp(10.5px, calc(1.24 * var(--u)), 15px);
+}
+
+.btn-apply {
+  font-size: clamp(10px, calc(1.16 * var(--u)), 13.5px);
+  padding: clamp(3px, calc(0.48 * var(--u)), 6px) clamp(10px, calc(1.8 * var(--u)), 18px);
+}
+
+.section-italic-heading {
+  font-size: clamp(15px, calc(3.05 * var(--u)), 34px);
+}
+
+.section-short-rule {
+  width: clamp(14px, calc(2.1 * var(--u)), 24px);
+}
+
+.section-description {
+  font-size: clamp(8px, calc(1.10 * var(--u)), 13px);
+  line-height: 1.36;
+}
+
+.retro-titlebar {
+  height: clamp(15px, calc(1.58 * var(--u)), 22px);
+}
+
+.retro-title-text {
+  font-size: clamp(9px, calc(0.84 * var(--u)), 12px);
+}
+
+.retro-btn {
+  width: clamp(11px, calc(1.22 * var(--u)), 16px);
+  height: clamp(10px, calc(1.16 * var(--u)), 15px);
+  font-size: clamp(8px, calc(0.78 * var(--u)), 11px);
+}
+
+.program-txt-line {
+  font-size: clamp(8px, calc(0.84 * var(--u)), 12px);
+}
+
+.progress-track-well {
+  height: clamp(12px, calc(1.62 * var(--u)), 18px);
+}
+
+.progress-pct-label {
+  font-size: clamp(8.5px, calc(0.84 * var(--u)), 12px);
+}
+
+.timeline-card {
+  border-radius: clamp(5px, calc(1.15 * var(--u)), 11px);
+  padding: clamp(5px, calc(0.85 * var(--u)), 14px) clamp(7px, calc(1.25 * var(--u)), 18px);
+}
+
+.card-month {
+  font-size: clamp(7.5px, calc(0.80 * var(--u)), 11px);
+}
+
+.card-title {
+  font-size: clamp(11px, calc(1.95 * var(--u)), 23px);
+}
+
+.card-desc {
+  font-size: clamp(7.5px, calc(0.82 * var(--u)), 12px);
+  line-height: 1.3;
+}
+
+.card-number {
+  font-size: clamp(18px, calc(3.6 * var(--u)), 44px);
+}
+
+.timeline-arrow {
+  font-size: clamp(10px, calc(1.4 * var(--u)), 18px);
+}
+
+/* Compact Landscape Fine-Tuning for Smaller Phone Displays (height <= 440px) */
+@media (max-height: 440px) {
   .program-header {
-    position: relative;
-    top: auto;
-    left: auto;
-    right: auto;
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 6px;
-  }
-
-  .brand-wordmark {
-    position: relative;
-    z-index: 2;
-    font-size: clamp(16px, 2.2vw, 22px);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  .program-nav {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: clamp(10px, 1.8vw, 24px);
-    white-space: nowrap;
-  }
-
-  .nav-link {
-    font-size: clamp(11px, 1.25vw, 14px);
-    white-space: nowrap;
-  }
-
-  .header-action {
-    position: relative;
-    z-index: 2;
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-shrink: 0;
-  }
-
-  .btn-apply {
-    font-size: clamp(11px, 1.1vw, 13px);
-    padding: 4px clamp(10px, 1.4vw, 16px);
-    white-space: nowrap;
-  }
-
-  /* Hero Section in Landscape */
-  .program-hero {
-    position: relative;
-    inset: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    padding-top: 2px;
-    width: 100%;
+    top: 2.0%;
+    height: 6.8%;
   }
 
   .hero-title-layer {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    width: 100%;
-    text-align: center;
-  }
-
-  .program-hero-title {
-    font-size: clamp(34px, 7vw, 76px);
-    line-height: 0.92;
-    letter-spacing: -0.01em;
-    transform: scaleX(0.78);
+    top: 9.5%;
   }
 
   .hero-left-info {
-    position: relative;
-    left: auto;
-    top: auto;
-    width: 100%;
-    max-width: 520px;
-    align-items: center;
-    text-align: center;
-    margin: 2px 0 6px;
-  }
-
-  .section-italic-heading {
-    font-size: clamp(16px, 2.2vw, 22px);
-    flex-direction: row;
-    gap: 6px;
-    margin-bottom: 2px;
-  }
-
-  .section-short-rule {
-    width: 22px;
-    margin-bottom: 4px;
-  }
-
-  .section-description {
-    font-size: clamp(10.5px, 1.2vw, 12.5px);
-    line-height: 1.35;
-    max-width: 440px;
-  }
-
-  .decor-pixel-checker,
-  .decor-tech-grid,
-  .orbital-curve-svg {
-    display: none;
-  }
-
-  .hero-central-subject {
-    position: relative;
-    inset: auto;
-    width: auto;
-    max-width: 180px;
-    height: clamp(90px, 24vh, 140px);
-    margin: 0 auto;
+    top: 28%;
+    width: clamp(115px, calc(15 * var(--u)), 180px);
   }
 
   .subject-cutout-img {
-    position: relative;
-    left: 0;
-    top: 0;
-    width: auto;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  /* Compact Retro Windows on Mobile Landscape */
-  .retro-window {
-    position: relative !important;
-    left: auto !important;
-    top: auto !important;
-    width: clamp(120px, 24vw, 170px) !important;
-    display: inline-block;
-    margin: 4px 6px !important;
-    vertical-align: top;
+    top: 18.5%;
+    height: 53.5%;
   }
 
   .window-she-builds {
-    height: clamp(80px, 18vh, 105px) !important;
+    top: 36.5%;
+    left: 23.0%;
   }
 
   .window-program-txt {
-    height: auto !important;
-  }
-
-  .body-program-txt {
-    padding: 6px 8px;
-  }
-
-  .program-txt-line {
-    font-size: 10px;
-    padding: 2px 4px;
+    top: 33.5%;
+    left: 67.5%;
   }
 
   .window-progress-exe {
-    height: 50px !important;
+    top: 55.0%;
+    left: 64.0%;
   }
 
-  .retro-titlebar {
-    height: 20px;
-  }
-
-  .retro-title-text {
-    font-size: 11px;
-  }
-
-  .retro-btn {
-    width: 16px;
-    height: 14px;
-    font-size: 10px;
-  }
-
-  .progress-track-well {
-    height: 18px;
-  }
-
-  .progress-pct-label {
-    font-size: 11px;
-  }
-
-  .retro-reopen-dock {
-    position: relative;
-    right: auto;
-    bottom: auto;
-  }
-
-  /* 3 Horizontal Cards in Landscape — Never Stack Vertically */
   .program-timeline {
-    position: relative;
-    left: auto;
-    right: auto;
-    top: auto;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: space-between;
-    gap: clamp(8px, 1.4vw, 16px);
-    width: 100%;
-    max-width: 1000px;
-    margin: 8px auto 0;
-  }
-
-  .timeline-arrow {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    padding: 0 2px;
+    top: 73.0%;
+    height: 24.0%;
+    gap: clamp(4px, calc(0.8 * var(--u)), 10px);
   }
 
   .timeline-card {
-    flex: 1 1 0;
-    min-width: 0;
-    min-height: clamp(85px, 22vh, 125px);
-    border-radius: 10px;
-    padding: 10px 12px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .card-month {
-    font-size: clamp(9px, 1.1vw, 11px);
-    margin-bottom: 2px;
-  }
-
-  .card-title {
-    font-size: clamp(14px, 1.8vw, 20px);
-    margin-bottom: 4px;
+    padding: 4px clamp(5px, calc(0.7 * var(--u)), 10px);
   }
 
   .card-desc {
-    font-size: clamp(9.5px, 1.1vw, 11.5px);
-    line-height: 1.32;
-    max-width: 82%;
+    max-width: 90%;
   }
+}
 
-  .card-number {
-    font-size: clamp(24px, 3.8vw, 38px);
-    right: 8px;
-    top: 6px;
+/* Tablet / Moderate Displays Fine-Tuning */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hero-left-info {
+    width: clamp(140px, calc(17 * var(--u)), 220px);
   }
 }
 
