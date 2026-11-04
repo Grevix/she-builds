@@ -1,20 +1,21 @@
 /* ==========================================================================
    SHE BUILDS — UNDER CONSTRUCTION PAGE (in-the-making.css)
-   Exact visual fidelity to reference image: Saturated magenta background (#E1035D),
+   Exact visual fidelity to reference identity: Saturated hot-pink background (#E4045E),
    high-contrast editorial serif headline, animated diagonal-striped progress bar.
    ========================================================================== */
 
 :root {
-  /* Exact sampled magenta background from reference screenshot */
-  --bg-magenta: #E1035D;
+  /* Exact sampled hot-pink background from reference screenshot / About page match */
+  --bg-hot-pink: #E4045E;
+  --bg-magenta: #E4045E;
   --text-white: #FFFFFF;
 
   /* Typography */
-  --font-editorial: 'Bodoni Moda', 'Didot', Georgia, serif;
+  --font-editorial: 'Bodoni Moda', 'Didot', 'Playfair Display', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'IBM Plex Mono', 'SF Mono', Consolas, monospace;
 
-  /* Proportional unit — same formula as About page for pixel-perfect navbar match */
+  /* Proportional unit — exact match with About page formula */
   --u: min(1vw, 2.142vh);
 }
 
@@ -33,7 +34,7 @@ body {
   width: 100%;
   height: 100%;
   min-height: 100%;
-  background-color: var(--bg-magenta);
+  background-color: var(--bg-hot-pink);
   color: var(--text-white);
   font-family: var(--font-sans);
   overflow-x: hidden;
@@ -52,7 +53,7 @@ button {
 }
 
 /* ==========================================================================
-   PAGE STAGE CONTAINER (Full Viewport)
+   PAGE STAGE CONTAINER (Full Viewport, Non-Scrolling)
    ========================================================================== */
 
 .under-stage {
@@ -60,89 +61,92 @@ button {
   width: 100vw;
   height: 100vh;
   height: 100dvh;
-  background-color: var(--bg-magenta);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  background-color: var(--bg-hot-pink);
   overflow: hidden;
-  padding: clamp(10px, 2.7vh, 26px) 4.6% clamp(12px, 3vh, 30px);
 }
 
 /* ==========================================================================
-   1. TOP NAVIGATION BAR
+   1. TOP NAVIGATION BAR (Exact 1:1 Match with About Page Navbar)
    ========================================================================== */
 
+.about-header,
 .under-header {
-  position: relative;
-  width: 100%;
-  height: clamp(28px, 6.8vh, 44px);
+  position: absolute;
+  top: 2.7%;
+  left: 4.6%;
+  right: 4.1%;
+  height: 7.5%;
+  z-index: 40;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  flex-shrink: 0;
-  z-index: 20;
+  align-items: center;
 }
 
+.brand-wordmark,
 .under-brand {
   display: inline-flex;
   align-items: baseline;
   gap: 0.26em;
+  text-decoration: none;
   font-family: var(--font-editorial);
-  font-size: clamp(15px, calc(1.92 * var(--u)), 24px);
+  font-size: calc(1.92 * var(--u));
   font-weight: 700;
   letter-spacing: 0.015em;
   line-height: 1;
   color: var(--text-white);
   white-space: nowrap;
-  text-decoration: none;
 }
 
 .brand-she {
+  color: var(--text-white);
   font-weight: 700;
   font-style: normal;
   -webkit-text-stroke: 0.35px var(--text-white);
 }
 
 .brand-builds {
+  color: var(--text-white);
   font-style: italic;
   font-weight: 600;
   -webkit-text-stroke: 0.3px var(--text-white);
 }
 
+.about-nav,
 .under-nav {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  gap: clamp(10px, calc(3.4 * var(--u)), 36px);
+  gap: calc(3.6 * var(--u));
 }
 
-.under-nav .nav-link {
+.about-nav .nav-link,
+.under-nav .nav-link,
+.nav-link {
+  text-decoration: none;
   font-family: var(--font-sans);
-  font-size: clamp(10.5px, calc(1.24 * var(--u)), 15px);
+  font-size: calc(1.26 * var(--u));
   font-weight: 400;
   letter-spacing: 0.015em;
   color: rgba(255, 255, 255, 0.90);
-  white-space: nowrap;
-  transition: color 0.2s ease, opacity 0.2s ease;
-  position: relative;
   padding-bottom: 4px;
-  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease, opacity 0.2s ease;
+  white-space: nowrap;
 }
 
-.under-nav .nav-link:hover {
+.nav-link:hover {
   color: #FFFFFF;
 }
 
-/* Active "In the Making" uses underline via ::after — matches About page style */
-.under-nav .nav-link.active {
+/* Active "In the Making" uses underline via ::after — exact match to About page */
+.nav-link.active {
   color: #FFFFFF;
   font-weight: 500;
 }
 
-.under-nav .nav-link.active::after {
+.nav-link.active::after {
   content: '';
   position: absolute;
   left: -2px;
@@ -152,34 +156,37 @@ button {
   background-color: #FFFFFF;
 }
 
+.header-action,
 .under-action {
   display: flex;
-  align-items: center;
   justify-content: flex-end;
+  align-items: center;
 }
 
+.btn-check-grevix,
 .btn-apply {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(3px, calc(0.48 * var(--u)), 6px) clamp(10px, calc(1.8 * var(--u)), 18px);
+  padding: calc(0.52 * var(--u)) calc(1.65 * var(--u));
   border: 1px solid rgba(255, 255, 255, 0.88);
   border-radius: 9999px;
-  color: var(--text-white);
+  color: #FFFFFF;
   font-family: var(--font-sans);
+  font-size: calc(1.12 * var(--u));
   font-style: italic;
   font-weight: 500;
-  font-size: clamp(10px, calc(1.12 * var(--u)), 13.5px);
-  background: transparent;
-  white-space: nowrap;
   text-decoration: none;
   letter-spacing: 0.02em;
+  background: transparent;
   transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
 }
 
+.btn-check-grevix:hover,
 .btn-apply:hover {
-  background-color: var(--text-white);
-  color: var(--bg-magenta);
+  background-color: #FFFFFF;
+  color: var(--bg-hot-pink);
   transform: translateY(-1px);
 }
 
@@ -188,15 +195,17 @@ button {
    ========================================================================== */
 
 .under-hero {
-  position: relative;
-  flex: 1;
-  width: 100%;
+  position: absolute;
+  top: 10.2%;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   text-align: center;
-  padding: 0;
+  padding: 0 4.6% clamp(14px, 3vh, 32px);
   z-index: 10;
   overflow: hidden;
 }
@@ -374,16 +383,86 @@ button {
 }
 
 /* ==========================================================================
-   ACCESSIBILITY & PREFERS-REDUCED-MOTION
+   RESPONSIVE DESIGN (Tablet, Mobile Landscape & Compact Displays)
    ========================================================================== */
 
-@media (prefers-reduced-motion: reduce) {
-  .progress-fill {
-    animation: none;
-    transition: none;
+@media (max-height: 560px), (max-width: 960px) {
+  .about-header,
+  .under-header {
+    position: absolute;
+    top: 2.2%;
+    left: 4.0%;
+    right: 4.0%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 6px;
   }
+
+  .brand-wordmark,
+  .under-brand {
+    font-size: clamp(15px, 2.2vw, 22px);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .about-nav,
+  .under-nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: clamp(10px, 1.8vw, 24px);
+    white-space: nowrap;
+  }
+
+  .nav-link {
+    font-size: clamp(10.5px, 1.25vw, 14px);
+    white-space: nowrap;
+  }
+
+  .header-action,
+  .under-action {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+  }
+
+  .btn-check-grevix,
+  .btn-apply {
+    font-size: clamp(10px, 1.1vw, 13px);
+    padding: 3px clamp(8px, 1.3vw, 14px);
+    white-space: nowrap;
+  }
+
+  .under-hero {
+    top: 9.8%;
+    padding: 0 4% clamp(8px, 2vh, 16px);
+  }
+
+  .cone-wrap {
+    width: clamp(32px, calc(4.8 * var(--u)), 50px);
+  }
+
+  .progress-track {
+    width: clamp(110px, calc(13 * var(--u)), 180px);
+    height: 8px;
+  }
+
+  .under-headline {
+    line-height: 0.9;
+  }
+
   .headline-under,
   .headline-construction {
-    animation: none;
+    font-size: clamp(28px, calc(6.5 * var(--u)), 72px);
+  }
+
+  .launch-note {
+    font-size: clamp(9.5px, 1.2vw, 12px);
   }
 }
