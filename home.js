@@ -215,53 +215,32 @@
   });
 
   // =========================================================================
-  // Universal Cross-Platform Animated Rimuru Tempest Cursor Engine
-  // Works on every laptop & PC browser (Windows, macOS, Linux) via native PNG frames
-  // extracted from the 3 .ani cursor sets at their exact RIFF/ACON jiffy timings.
+  // Universal Cross-Platform Rimuru Tempest Cursor Engine
+  // High-fidelity custom cursors matching the SHE BUILDS aesthetic
   // =========================================================================
   const cursorSets = {
     normal: {
       prop: '--cursor-normal',
       fallback: 'auto',
       hx48: 0, hy48: 0, hx32: 0, hy32: 0,
-      frames: 5,
-      durationsMs: [1600, 117, 100, 167, 650], // [96, 7, 6, 10, 39] jiffies
     },
     link: {
       prop: '--cursor-link',
       fallback: 'pointer',
       hx48: 4, hy48: 0, hx32: 3, hy32: 0,
-      frames: 5,
-      durationsMs: [800, 133, 217, 133, 800], // [48, 8, 13, 8, 48] jiffies
     },
     working: {
       prop: '--cursor-working',
       fallback: 'progress',
       hx48: 0, hy48: 0, hx32: 0, hy32: 0,
-      frames: 8,
-      durationsMs: [100, 100, 100, 100, 100, 100, 100, 100], // 6 jiffies each
     },
   };
 
-  // Preload all cursor PNG frames so frame transitions never flicker
+  // Set and preload native custom cursor frames
   Object.keys(cursorSets).forEach((type) => {
     const cfg = cursorSets[type];
-    for (let i = 0; i < cfg.frames; i++) {
-      const img48 = new Image();
-      img48.src = `cursors/${type}_48_${i}.png`;
-      const img32 = new Image();
-      img32.src = `cursors/${type}_32_${i}.png`;
-    }
-
-    let frameIdx = 0;
-    function stepCursorFrame() {
-      const val = `url('cursors/${type}_48_${frameIdx}.png') ${cfg.hx48} ${cfg.hy48}, url('cursors/${type}_32_${frameIdx}.png') ${cfg.hx32} ${cfg.hy32}, ${cfg.fallback}`;
-      document.documentElement.style.setProperty(cfg.prop, val);
-      const delay = cfg.durationsMs[frameIdx] || 150;
-      frameIdx = (frameIdx + 1) % cfg.frames;
-      setTimeout(stepCursorFrame, delay);
-    }
-    stepCursorFrame();
+    const val = `url('cursors/${type}_48_0.png') ${cfg.hx48} ${cfg.hy48}, url('cursors/${type}_32_0.png') ${cfg.hx32} ${cfg.hy32}, ${cfg.fallback}`;
+    document.documentElement.style.setProperty(cfg.prop, val);
   });
 
 })();
